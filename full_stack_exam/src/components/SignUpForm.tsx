@@ -9,7 +9,9 @@ import {
   FormControl,
   FormLabel,
   Image,
-  Center
+  Center,
+  Text,
+  Heading
 } from '@chakra-ui/react';
 
 interface SignUpFormProps {
@@ -43,17 +45,15 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px">
-
       <Center>
         {/* Logo */}
         <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
       </Center>
-
       {/* SignUpForm */}
       <Box>
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
-            <FormLabel>Username</FormLabel>
+            <FormLabel fontFamily='Roboto'>Username</FormLabel>
             <Input
               type="text"
               name="username"
@@ -61,11 +61,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Full Name</FormLabel>
+            <FormLabel fontFamily='Roboto'>Full Name</FormLabel>
             <Input
               type="text"
               name="fullName"
@@ -73,11 +75,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Email</FormLabel>
+            <FormLabel fontFamily='Roboto'>Email</FormLabel>
             <Input
               type="email"
               name="email"
@@ -85,11 +89,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
+              color="black"
               borderRadius="0"
+              fontFamily='Roboto'
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Password</FormLabel>
+            <FormLabel fontFamily='Roboto'>Password</FormLabel>
             <Input
               type="password"
               name="password"
@@ -97,11 +103,13 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Confirm Password</FormLabel>
+            <FormLabel fontFamily='Roboto'>Confirm Password</FormLabel>
             <Input
               type="password"
               name="confirmPassword"
@@ -109,7 +117,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
+
             />
           </FormControl>
           <Button
@@ -119,6 +130,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             color="black"
             borderRadius="20px"
             size = "lg"
+            fontFamily = "Chakra Petch"
           >
             Sign Up
           </Button>

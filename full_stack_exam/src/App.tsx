@@ -1,8 +1,8 @@
 import SignUpForm from "./components/SignUpForm";
 import './App.css'
-import { ChakraProvider } from '@chakra-ui/react';
-import NavBar from "./components/NavBar";
-import LoginForm from "./components/SignInForm";
+import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
+import NavBar from "./components/Navbar";
+import LoginForm from "./components/LoginForm";
 
 function App() {
 
@@ -12,9 +12,26 @@ function App() {
 
   return (
     <ChakraProvider>
-        <NavBar></NavBar>
-        <SignUpForm onSignUpSuccess={handleSignUpSuccess} />
-        <LoginForm></LoginForm>
+      <Grid
+            templateAreas={{
+              base: `"nav" "main"`,
+              lg: `"nav`,
+            }}
+            templateRows={{
+              base: "1fr 1fr"
+            }}
+            templateColumns={{
+              base: "1fr",
+              lg: "1fr",
+            }}>
+          <GridItem gridArea={"nav"}>
+            <NavBar />
+          </GridItem>
+          <GridItem  gridArea={"main"}>
+            <SignUpForm onSignUpSuccess={handleSignUpSuccess} />
+            <LoginForm />
+          </GridItem>
+      </Grid>
     </ChakraProvider>
   )
 }
