@@ -51,7 +51,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
       <Box>
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
-            <FormLabel>Email</FormLabel>
+            <FormLabel fontFamily='Roboto'>Email</FormLabel>
             <Input
               type="email"
               name="email"
@@ -59,11 +59,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel>Password</FormLabel>
+            <FormLabel fontFamily='Roboto'>Password</FormLabel>
             <Input
               type="password"
               name="password"
@@ -71,7 +73,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
               onChange={handleInputChange}
               required
               backgroundColor="white"
-              borderRadius="0"
+              color="black"
+              borderRadius="2"
+              fontFamily='Roboto'
             />
           </FormControl>
           <Button
@@ -81,6 +85,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             color="black"
             borderRadius="20px"
             size = "lg"
+            fontFamily = "Chakra Petch"
           >
             Login
           </Button>
