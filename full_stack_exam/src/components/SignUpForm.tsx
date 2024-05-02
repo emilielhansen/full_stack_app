@@ -43,6 +43,16 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
     onSignUpSuccess();
   };
 
+  function handleOnChange(e: React.FormEvent<HTMLInputElement>) {
+    const [file, setFile] = useState<File | undefined>();
+    const target = e.target as HTMLInputElement & {
+      files: FileList;
+    }
+    console.log('file', file)
+  
+    setFile(target.files[0]);
+  }
+
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px">
       <Center>
@@ -123,12 +133,19 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
             />
           </FormControl>
-          <Button
+          <FormControl>
+            <FormLabel fontFamily='Roboto'>Upload profile image</FormLabel>
+            <input 
+            type="file" 
+            name='image' 
+            onChange={handleOnChange}/>
+          </FormControl>
+          <Button mt={4}
             type="submit"
             backgroundColor="#FBC027"
             colorScheme="yellow"
             color="black"
-            borderRadius="20px"
+            borderRadius="20"
             size = "lg"
             fontFamily = "Chakra Petch"
           >
