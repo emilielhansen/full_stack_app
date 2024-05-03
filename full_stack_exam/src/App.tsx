@@ -6,11 +6,8 @@ import LoginForm from "./components/LoginForm";
 
 function App() {
 
-  const handleSignUpSuccess = () => {
-    alert('Sign up successful!'); // You can replace this with any desired action
-  };
-
   return (
+
     <ChakraProvider>
       <Grid
             templateAreas={{
@@ -24,13 +21,31 @@ function App() {
               base: "1fr",
               lg: "1fr",
             }}>
+
+          {/* Navbar */}
           <GridItem gridArea={"nav"}>
             <NavBar />
           </GridItem>
+
+          {/* Signup form */}
           <GridItem  gridArea={"main"}>
-            <SignUpForm onSignUpSuccess={handleSignUpSuccess} />
-            <LoginForm />
+            <SignUpForm onSignUpSuccess={function (): void {
+            throw new Error("Function not implemented.");
+          } }/>
           </GridItem>
+
+          {/* Login form */}
+          <GridItem>
+            <LoginForm onLoginSuccess={function (): void {
+              throw new Error("Function not implemented.");
+            } } />
+          </GridItem>
+
+          {/* PostFeed */}
+          <GridItem>
+
+          </GridItem>
+
       </Grid>
     </ChakraProvider>
   )

@@ -35,7 +35,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     e.preventDefault();
 
     // TODO: Perform the actual login logic when you have a backend
-    // For now, just simulate success
+    // Simulate success
     onLoginSuccess();
   };
 
