@@ -38,7 +38,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: Perform the actual signup logic when you have a backend
+    // post: Perform the actual signup logic when you have a backend
     // For now, just simulate success
     onSignUpSuccess();
   };
