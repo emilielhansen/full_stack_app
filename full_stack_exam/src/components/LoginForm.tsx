@@ -34,13 +34,13 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    // TODO: Perform the actual login logic when you have a backend
+    // post: Perform the actual login logic when you have a backend
     // Simulate success
     onLoginSuccess();
   };
 
   return (
-    <Box m="auto" mt={8} p={4} maxWidth="400px">
+    <Box m="auto" mt={8} p={4} maxWidth="400px" >
 
       <Center>
         {/* Logo */}
