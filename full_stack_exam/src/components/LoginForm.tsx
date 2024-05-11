@@ -51,7 +51,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
       <Box>
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Email</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Email</FormLabel>
             <Input
               type="email"
               name="email"
@@ -65,7 +68,10 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Password</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Password</FormLabel>
             <Input
               type="password"
               name="password"
