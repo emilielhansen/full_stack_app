@@ -5,7 +5,7 @@ import { Box, Flex, Link, Button, Avatar, Image } from '@chakra-ui/react';
 
 const NavBar: React.FC = () => {
   return (
-    <Box as="nav" bg="#181818" p={4} color="white" boxShadow='md'>
+    <Box as="nav" bg="#181818" p={4} color="white" boxShadow='md' zIndex={999} >
       <Flex justify="space-between" align="center">
         {/* Logo (Replace with your actual logo) */}
           <Link boxSize="50px" href="#" fontSize="xl" fontWeight="bold">

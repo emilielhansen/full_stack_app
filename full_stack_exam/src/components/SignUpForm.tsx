@@ -9,9 +9,7 @@ import {
   FormControl,
   FormLabel,
   Image,
-  Center,
-  Text,
-  Heading
+  Center
 } from '@chakra-ui/react';
 
 interface SignUpFormProps {
@@ -36,8 +34,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   };
 
   const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
+    e.preventDefault(); 
     // post: Perform the actual signup logic when you have a backend
     // For now, just simulate success
     onSignUpSuccess();
@@ -63,7 +60,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
       <Box>
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Username</FormLabel>
+            <FormLabel 
+            fontFamily='Roboto'
+            color='white'
+            >Username</FormLabel>
             <Input
               type="text"
               name="username"
@@ -77,7 +77,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Full Name</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Full Name</FormLabel>
             <Input
               type="text"
               name="fullName"
@@ -91,7 +94,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Email</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+            >Email</FormLabel>
             <Input
               type="email"
               name="email"
@@ -105,7 +111,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Password</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Password</FormLabel>
             <Input
               type="password"
               name="password"
@@ -119,7 +128,10 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
           </FormControl>
           <FormControl mb={4}>
-            <FormLabel fontFamily='Roboto'>Confirm Password</FormLabel>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Confirm Password</FormLabel>
             <Input
               type="password"
               name="confirmPassword"
@@ -134,11 +146,15 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
           </FormControl>
           <FormControl>
-            <FormLabel fontFamily='Roboto'>Upload profile image</FormLabel>
-            <input 
-            type="file" 
-            name='image' 
-            onChange={handleOnChange}/>
+            <FormLabel 
+              fontFamily='Roboto'
+              color='white'
+              >Upload profile image</FormLabel>
+            <Input ml={-5}
+              type="file"
+              color='white'
+              border={0}
+              onChange={handleOnChange}/>
           </FormControl>
           <Button mt={4}
             type="submit"

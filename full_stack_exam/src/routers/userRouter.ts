@@ -14,8 +14,8 @@ userRouter.get("/", async (req, res) => {
 });
 
 userRouter.post("/", async (req, res) => {
-  const { username, name, email, password, image } = req.body as CreateUserDto;
-  const user = new User({ username: username, name: name, email: email, password: password, image: image});
+  const { username, fullName, email, password, image } = req.body as CreateUserDto;
+  const user = new User({ username: username, fullName: fullName, email: email, password: password, image: image});
 
   try {
     const savedUser = await user.save();
