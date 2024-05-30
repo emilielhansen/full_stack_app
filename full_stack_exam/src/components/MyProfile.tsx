@@ -5,7 +5,7 @@ import { relative } from "path";
 
 //ProfilePage.tsx
 
-const ProfilePage = () => {
+const MyProfile = () => {
     return (
         <Box>
             <Box bg={"#FBC027"} mt={-5} h={500} width="100%" position="relative" zIndex={-1} >
@@ -60,4 +60,4 @@ const ProfilePage = () => {
     );
 };
 
-export default ProfilePage
+export default MyProfile

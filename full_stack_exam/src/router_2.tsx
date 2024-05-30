@@ -1,7 +1,7 @@
 //Router for SPA
 
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Edit from "./pages/EditPage";
+import Edit from "./pages/EditProfilePage";
 import Feed from "./pages/FeedPage";
 import Login from "./pages/LoginPage";
 import Profile from "./pages/ProfilePage";
