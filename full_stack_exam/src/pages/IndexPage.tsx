@@ -4,25 +4,30 @@ const IndexPage = () => {
     return (
         <>
         <Grid
-        templateColumns='1fr 1fr'>
+        templateColumns={{base: '1fr'}}>
             <GridItem>
-            <Box>
-                <Heading 
-                as='h1'
-                mt={250} 
-                fontFamily='Chakra Petch'
-                color='#FBC027'
-                fontSize={50}
-                 >Welcome to the BeeHive🐝</Heading>
-                <Text
-                 fontSize={20}>
-                    Be a part of the hive and sign up now!
-                </Text>
-            </Box>
+                <Box>
+                    <Center>
+                        <Heading
+                        as='h1' 
+                        fontFamily='Chakra Petch'
+                        color='#FBC027'
+                        fontSize={50}
+                        mt='7rem'
+                        >Welcome to the BeeHive🐝
+                        </Heading>
+                    </Center>
+                    <Center>
+                        <Text
+                        fontSize={20}>
+                        Be a part of the hive and sign up now!
+                        </Text>
+                    </Center>
+                </Box>
             </GridItem>
             <GridItem>
                 <Center>
-                <Image src="src/assets/logo.png" w='50%' pt={100}/>
+                    <Image src="src/assets/logo.png" w='20%' pt={30}/>
                 </Center>
             </GridItem>
         </Grid>
