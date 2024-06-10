@@ -10,7 +10,9 @@ import {
   FormControl,
   FormLabel,
   Image,
-  Center
+  Center,
+  Text,
+  Link
 } from '@chakra-ui/react';
 
 interface LoginFormProps {
@@ -33,7 +35,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-
     // post: Perform the actual login logic when you have a backend
     // Simulate success
     onLoginSuccess();
@@ -53,8 +54,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
           <FormControl mb={4}>
             <FormLabel 
               fontFamily='Roboto'
-              color='white'
-              >Email</FormLabel>
+              color='white'>
+              Email
+            </FormLabel>
             <Input
               type="email"
               name="email"
@@ -67,11 +69,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
               fontFamily='Roboto'
             />
           </FormControl>
-          <FormControl mb={4}>
+          <FormControl mb={8}>
             <FormLabel 
               fontFamily='Roboto'
-              color='white'
-              >Password</FormLabel>
+              color='white'>
+              Password
+            </FormLabel>
             <Input
               type="password"
               name="password"
@@ -84,7 +87,9 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
               fontFamily='Roboto'
             />
           </FormControl>
-          <Button
+          {/* Submit button */}
+          <Box textAlign="center" mb={4}>
+          <Button 
             type="submit"
             backgroundColor="#FBC027"
             colorScheme="yellow"
@@ -92,9 +97,15 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
             borderRadius="20px"
             size = "lg"
             fontFamily = "Chakra Petch"
-          >
+            width="50%"
+            height="40px">
             Login
           </Button>
+            <Text
+              color="gray">
+              Don't have a user yet? <Link href="/signup" textDecoration="underline">Signup!</Link>
+            </Text>
+            </Box>
         </form>
       </Box>
     </Box>
