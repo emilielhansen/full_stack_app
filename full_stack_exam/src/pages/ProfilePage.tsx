@@ -1,8 +1,11 @@
-const Profile = () => {
+import MyProfile from "../components/MyProfile";
+
+const ProfilePage = () => {
     return (
         <>
+        <MyProfile />
         </>
     );
   };
   
-  export default Profile;
+  export default ProfilePage;

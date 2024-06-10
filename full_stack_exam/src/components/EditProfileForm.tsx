@@ -11,11 +11,11 @@ import {
 } from '@chakra-ui/react';
 import NavBar from './Navbar';
 
-interface EditProfileProps {
+interface EditProfileFormProps {
   updateUserSuccess: () => void;
 }
 
-const EditProfile: React.FC<EditProfileProps> = ({ updateUserSuccess }) => {
+const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) => {
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -102,4 +102,4 @@ const handleUpdate = (e: React.FormEvent) => {
   );
 };
 
-export default EditProfile;
+export default EditProfileForm;

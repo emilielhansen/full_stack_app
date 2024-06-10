@@ -3,7 +3,7 @@ import './App.css'
 import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
 import NavBar from "./components/Navbar";
 import LoginForm from "./components/LoginForm";
-import EditProfile from "./components/EditProfile";
+import EditProfileForm from "./components/EditProfileForm";
 
 function App() {
 
