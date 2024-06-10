@@ -6,6 +6,7 @@ import LoginPage from "./pages/LoginPage";
 import SignUpPage from "./pages/SignUpPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import ProfilePage from "./pages/ProfilePage";
+import FeedPage from "./pages/FeedPage";
 
 
 const router = createBrowserRouter([
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
         { path: "/signup", element: < SignUpPage /> }, 
         { path: "/edit-profile", element: < EditProfilePage /> },
         { path: "/profile", element: < ProfilePage /> },
+        { path: "/feed", element: < FeedPage /> },
     ],
   },
 ]);
