@@ -16,6 +16,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["src"],
+  "include": ["src", "full_stack_api/dto", "full_stack_api/db", "full_stack_api/models", "full_stack_api/routers"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

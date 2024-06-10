@@ -5,7 +5,7 @@ const PostCreate = () => {
     return (
     <>
         <Center>
-        <Box mt={3} width={800} >
+        <Box m={3} width={800} >
                 <Input
                     type="text"
                     name="username"

@@ -1,7 +1,7 @@
 import express from "express";
-import dbConnect from "./db/dbConnect";
+import dbConnect from "../full_stack_api/db/dbConnect";
 import "dotenv/config";
-import userRouter from "./routers/userRouter";
+import userRouter from "../full_stack_api/routers/userRouter";
 import cors from "cors";
 
 dbConnect();

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import user from '../models/user';
+import user from '../../full_stack_api/models/user';
 import {
   Box,
   Button,
@@ -56,7 +56,7 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
             <Input
               type="text"
               name="fullName"
-              value={user.fullName} // Value from user model
+              value={"user.fullName"} // Value from user model
               onChange={handleInputChange}
               required
               backgroundColor="white"
@@ -75,7 +75,7 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
             <Input
               type="email"
               name="email"
-              value={user.email} // Value from user model
+              value={"user.email"} // Value from user model
               onChange={handleInputChange}
               required
               backgroundColor="white"

@@ -12,7 +12,7 @@ const PostCard = () => {
   return (
     <>
     <Center>
-        <Box mt={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5}>
+        <Box m={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5}>
             <Flex>
                 <Avatar 
                     boxSize='40px' 
@@ -25,15 +25,16 @@ const PostCard = () => {
                     as='h2'
                     fontSize={25}
                     fontFamily = 'Chakra Petch'
+                    color="white"
                     >Emilie Hansen</Heading>
                     ) : (
                     <>
                     <Flex>
-                      <Flex>
                     <Heading 
                     as='h2'
                     fontSize={25}
                     fontFamily = 'Chakra Petch'
+                    color="white"
                     >Emilie Hansen</Heading>
                     <Button
                     color='#FBC027'
@@ -48,12 +49,14 @@ const PostCard = () => {
                     >
                         Follow
                     </Button>
-                    </Flex>
-                    <HiDotsHorizontal
+                    <Flex>
+                      <HiDotsHorizontal
                       color='#FBC027'
                       cursor='pointer'
                       onClick={onOpen}
                     ></HiDotsHorizontal>
+                    </Flex>
+                    
                   
                   {/* Edit modal */}
                     <Modal isOpen={isOpen} onClose={onClose}>
@@ -83,7 +86,7 @@ const PostCard = () => {
                 </Box>
             </Flex>
             <Box borderBottom={1} borderBottomColor='#3D3D3D'>
-              <Text py={5} fontSize={20}>Jeg elsker Berta</Text>
+              <Text py={5} fontSize={20} color="white">Jeg elsker Berta</Text>
             </Box>
             <Box>
               {/* Like icon */}

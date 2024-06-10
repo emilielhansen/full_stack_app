@@ -2,13 +2,15 @@
 
 import { Box, Heading, Avatar, Text, Input, Button, Flex } from "@chakra-ui/react";
 import { relative } from "path";
+import PostCreate from "./PostCreate";
+import PostCard from "./PostCard";
 
 //ProfilePage.tsx
 
 const MyProfile = () => {
     return (
         <Box>
-            <Box bg={"#FBC027"} mt={-5} h={500} width="100%" position="relative" zIndex={-1} >
+            <Box bg={"#FBC027"} mt={-5} h={300} width="100%" position="relative" zIndex={-1} margin={0}>
                 <Avatar 
                     boxSize="150px" 
                     src="https://via.placeholder.com/32" 
@@ -20,10 +22,11 @@ const MyProfile = () => {
                     maxHeight="100%"
                     /> 
             </Box>
-            <Box>
+            <Box p={5}>
                 <Heading 
-                    mt={7}
+                    mt={5}
                     fontFamily = "Chakra Petch"
+                    color= "white"
                     >Julie Elmgaard Jensen
                 </Heading>
                 <Text color="grey">@julieelmgaard</Text>
@@ -31,30 +34,8 @@ const MyProfile = () => {
                 <Text color="grey">150 bee's</Text>
             </Box>
             <Box mt={3}>
-                <Input
-                    type="text"
-                    name="username"
-                    value="What is your update?"
-                    required
-                    backgroundColor="white"
-                    color="black"
-                    borderRadius="2"
-                    fontFamily='Roboto'
-                />
-                <Flex justifyContent="flex-end">
-                    <Button 
-                        mt={4}
-                        type="submit"
-                        backgroundColor="#FBC027"
-                        colorScheme="yellow"
-                        color="black"
-                        borderRadius="20"
-                        size = "lg"
-                        fontFamily = "Chakra Petch"
-                    >
-                    Bee
-                    </Button>
-                </Flex>
+                <PostCreate></PostCreate>
+                <PostCard></PostCard>
             </Box>
         </Box>
     );
