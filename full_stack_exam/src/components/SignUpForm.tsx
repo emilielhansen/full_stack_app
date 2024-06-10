@@ -10,6 +10,8 @@ import {
   FormLabel,
   Image,
   Center,
+  Link,
+  Text
 } from '@chakra-ui/react';
 import axios from 'axios';
 
@@ -178,7 +180,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
             />
           </FormControl>
-          <FormControl>
+          <FormControl mb={8}>
             <FormLabel 
               fontFamily='Roboto'
               color='white'
@@ -189,17 +191,24 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               border={0}
               onChange={handleImageChange}/>
           </FormControl>
-          <Button mt={4}
-            type="submit"
-            backgroundColor="#FBC027"
-            colorScheme="yellow"
-            color="black"
-            borderRadius="20"
-            size = "lg"
-            fontFamily = "Chakra Petch"
-          >
-            Sign Up
-          </Button>
+          <Box textAlign="center" mb={4}>
+            <Button 
+              type="submit"
+              backgroundColor="#FBC027"
+              colorScheme="yellow"
+              color="black"
+              borderRadius="20px"
+              size = "lg"
+              fontFamily = "Chakra Petch"
+              height="40px"
+              width="50%">
+              Sign up
+            </Button>
+            <Text
+                color="gray">
+                Already have a user? <Link href="/login" textDecoration="underline">Log in!</Link>
+            </Text>
+          </Box>
         </form>
       </Box>
     </Box>
