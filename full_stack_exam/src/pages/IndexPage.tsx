@@ -19,7 +19,10 @@ const IndexPage = () => {
                     </Center>
                     <Center>
                         <Text
-                        fontSize={20}>
+                        fontSize={20}
+                        color={'white'}
+                        fontFamily='Roboto'
+                        >
                         Be a part of the hive and sign up now!
                         </Text>
                     </Center>
