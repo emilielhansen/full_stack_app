@@ -42,8 +42,8 @@ const NavBar: React.FC = () => {
           ) : (
             // Buttons for not logged in users
             <>
-              <Button onClick={() => navigate('/login')} backgroundColor="#FFFFFF" colorScheme="gray" color="black" borderRadius="20px" size="md" fontFamily="Chakra Petch" mr={6}>Login</Button>
-              <Button onClick={() => navigate('/signup')} backgroundColor="#FBC027" colorScheme="yellow" color="black" borderRadius="20px" size="md" fontFamily="Chakra Petch">Sign up</Button>
+              <Button onClick={() => navigate('/login')} variant='white' mr={6}>Login</Button>
+              <Button onClick={() => navigate('/signup')} variant='yellow'>Sign up</Button>
             </>
           )}
         </Flex>

@@ -1,7 +1,6 @@
 // Profile page header with profile picture and name
 
-import { Box, Heading, Avatar, Text, Input, Button, Flex } from "@chakra-ui/react";
-import { relative } from "path";
+import { Box, Heading, Avatar, Text } from "@chakra-ui/react";
 import PostCreate from "./PostCreate";
 import PostCard from "./PostCard";
 

@@ -15,7 +15,6 @@ const breakpoints = {
   '2xl': '96em', // ~1536px
 }
 
-
 const theme = extendTheme({
     config,
     breakpoints,
@@ -32,8 +31,91 @@ const theme = extendTheme({
         800: "#121212",
         900: "#111",
       },
-      
+      yellow: {
+        100: '#FFDE89',
+        400: '#FFD055',
+        900: "#FBC027",
+      },
+      schemeYellow: {
+        100: '#FFDE89',   // provided color
+        200: '#FBC027',   // provided color
+        800: '#FBC027',   // provided color
+      },
+      red: {
+        400: '#FF5038', 
+        900: '#FB4027',
+      },
+      schemeRed: {
+        100: '#FF5038',   // light red
+        200: '#FF5038',   // lighter red
+        800: '#FB4027',   // lighter red
+      },  
     },
+
+    components: {
+      Input: {
+        variants: {
+          white: {
+            field: {
+              backgroundColor: "white",
+              color: "black",
+              borderRadius: "2",
+              fontFamily: 'Roboto',
+            },
+          },
+        },
+      },
+      Button: {
+        baseStyle: {
+          fontFamily: 'Chakra Petch',
+          borderRadius: '20px',
+        },
+        variants: {
+          yellow: {
+            bg: 'yellow.900', // Darkest shade
+            color: 'black',
+            _hover: {
+              bg: 'yellow.400', // Slightly lighter on hover
+            },
+            width:"50%",
+            height:"40px"
+          },
+          red: {
+            bg: 'red.900', // Darkest shade
+            color: 'black',
+            _hover: {
+              bg: 'red.400', // Slightly lighter on hover
+            },
+            width:"50%",
+            height:"40px"
+          },
+          white: {
+            bg: 'white', // Darkest shade
+            color: 'black',
+            _hover: {
+              bg: 'yellow.100', // Slightly lighter on hover
+            },
+            width:"50%",
+            height:"40px"
+          },
+          yellowSmall: {
+            bg: 'yellow.900', // Darkest shade
+            color: 'black',
+            _hover: {
+              bg: 'yellow.400', // Slightly lighter on hover
+            },
+          },
+          redSmall: {
+            bg: 'red.900', // Darkest shade
+            color: 'black',
+            _hover: {
+              bg: 'red.400', // Slightly lighter on hover
+            },
+          },
+        },
+      },
+    },
+
     textStyles: {
         input: "Chakra Petch"
     },

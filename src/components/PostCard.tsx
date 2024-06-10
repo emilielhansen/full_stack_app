@@ -37,7 +37,8 @@ const PostCard = () => {
                     color="white"
                     >Emilie Hansen</Heading>
                     <Button
-                    color='#FBC027'
+                    type='submit'
+                    color='yellow.900'
                     ml={3}
                     background='transparent'
                     _hover={{
@@ -57,7 +58,6 @@ const PostCard = () => {
                     ></HiDotsHorizontal>
                     </Flex>
                     
-                  
                   {/* Edit modal */}
                     <Modal isOpen={isOpen} onClose={onClose}>
                             <ModalOverlay />
@@ -65,13 +65,15 @@ const PostCard = () => {
                               <ModalHeader>Wanna edit or delete?</ModalHeader>
                               <ModalCloseButton />
                               <ModalBody>
-                                <Input backgroundColor={'white'} color={'black'}></Input>
+                                <Input variant='white'></Input>
                               </ModalBody>
                               <ModalFooter>
-                                <Button borderRadius='20px' backgroundColor='#FBC027' colorScheme='yellow' mr={3}>
+                                {/* Edit button */}
+                                <Button variant="yellowSmall" mr={3}>
                                   Edit Bee
                                 </Button>
-                                <Button borderRadius='20px' backgroundColor='#FB4027' colorScheme='red' >Delete Bee</Button>
+                                {/* Delete button */}
+                                <Button variant="redSmall" >Delete Bee</Button>
                               </ModalFooter>
                             </ModalContent>
                           </Modal>

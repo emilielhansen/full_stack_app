@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import user from '../../full_stack_api/models/user';
+
 import {
   Box,
   Button,
@@ -78,24 +78,14 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
               value={"user.email"} // Value from user model
               onChange={handleInputChange}
               required
-              backgroundColor="white"
-              color="black"
-              borderRadius="2"
-              fontFamily='Roboto'
+              variant='white'
             />
           </FormControl>
           {/* Update button */}
           <Box textAlign="center" mb={4}>
             <Button
               type="submit"
-              backgroundColor="#FBC027"
-              colorScheme="yellow"
-              color="black"
-              borderRadius="20px"
-              size = "lg"
-              fontFamily = "Chakra Petch"
-              width = "50%"
-              height="40px">
+              variant="yellow">
               Update Profile
             </Button>
           </Box>
@@ -103,15 +93,7 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
           <Box textAlign="center">
             <Button
               type="submit"
-              backgroundColor="#FB4027"
-              colorScheme="red"
-              color="black"
-              borderRadius="20px"
-              size="lg"
-              fontFamily="Chakra Petch"
-              display="inline-block"
-              width="50%"
-              height="40px">
+              variant="red">
               Delete Profile
             </Button>
           </Box>
