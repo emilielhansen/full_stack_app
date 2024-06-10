@@ -34,7 +34,7 @@ const NavBar: React.FC = () => {
               </MenuButton>
               <MenuList bg="#282828" color="white" borderRadius="8px" borderColor="transparent" mt={2}>
                 <MenuItem icon={<FaUser />} onClick={() => navigate('/profile')}>Profile</MenuItem>
-                <MenuItem icon={<FaCog />} onClick={() => navigate('/settings')}>Settings</MenuItem>
+                <MenuItem icon={<FaCog />} onClick={() => navigate('/edit-profile')}>Settings</MenuItem>
                 <MenuDivider />
                 <MenuItem icon={<FaSignOutAlt />} onClick={handleLogout}>Logout</MenuItem>
               </MenuList>
@@ -76,7 +76,7 @@ const NavBar: React.FC = () => {
                     <FaUser /><Box ml={2}>Profile</Box>
                   </Flex>
                 </Link>
-                <Link onClick={() => { navigate('/settings'); onClose(); }} mb={4} display="block">
+                <Link onClick={() => { navigate('/edit-profile'); onClose(); }} mb={4} display="block">
                   <Flex align="center">
                     <FaCog /><Box ml={2}>Settings</Box>
                   </Flex>
