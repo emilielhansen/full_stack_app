@@ -1,6 +1,5 @@
 import { extendTheme, type ThemeConfig } from '@chakra-ui/react'
 
-
 const config: ThemeConfig = {
   initialColorMode: 'dark',
   useSystemColorMode: false,
@@ -18,6 +17,15 @@ const breakpoints = {
 const theme = extendTheme({
     config,
     breakpoints,
+    fonts: {
+      body: 'Roboto, sans-serif',
+      heading: 'Chakra Petch, sans-serif',
+    },
+    fontWeights: {
+      normal: 400,
+      medium: 500,
+      bold: 700,
+    },
     colors: {
       gray: {
         50: "#f9f9f9",
@@ -60,7 +68,7 @@ const theme = extendTheme({
               backgroundColor: "white",
               color: "black",
               borderRadius: "2",
-              fontFamily: 'Roboto',
+              fontFamily: 'Roboto.400',
             },
           },
         },

@@ -24,7 +24,6 @@ const MyProfile = () => {
             <Box p={5}>
                 <Heading 
                     mt={5}
-                    fontFamily = "Chakra Petch"
                     color= "white"
                     size = "lg"
                     >Julie Elmgaard Jensen

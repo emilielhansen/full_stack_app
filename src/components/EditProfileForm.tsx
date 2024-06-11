@@ -1,14 +1,5 @@
 import React, { useState } from 'react';
-
-import {
-  Box,
-  Button,
-  Input,
-  FormControl,
-  FormLabel,
-  Avatar,
-  Center
-} from '@chakra-ui/react';
+import { Box, Button, Input, FormControl, FormLabel, Avatar, Center } from '@chakra-ui/react';
 
 interface EditProfileFormProps {
   updateUserSuccess: () => void; // Function to update user data
@@ -49,7 +40,6 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
           {/* Full name input field */}
           <FormControl mb={4}>
             <FormLabel 
-            fontFamily='Roboto'
             color='white'>
             Full name
             </FormLabel>
@@ -65,7 +55,6 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
           {/* Email input field */}
           <FormControl mb={8}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'>
               Email
             </FormLabel>

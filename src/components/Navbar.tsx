@@ -90,8 +90,8 @@ const NavBar: React.FC = () => {
             ) : (
               // Drawer buttons for not logged in users
               <>
-                <Button onClick={() => { navigate('/login'); onClose(); }} backgroundColor="#FFFFFF" colorScheme="gray" color="black" borderRadius="20px" size="md" fontFamily="Chakra Petch" mb={4} w="100%">Login</Button>
-                <Button onClick={() => { navigate('/signup'); onClose(); }} backgroundColor="#FBC027" colorScheme="yellow" color="black" borderRadius="20px" size="md" fontFamily="Chakra Petch" w="100%">Sign up</Button>
+                <Button onClick={() => { navigate('/login'); onClose(); }} variant="white" mt={7} mb={3} w="100%">Login</Button>
+                <Button onClick={() => { navigate('/signup'); onClose(); }} variant="yellow" w="100%">Sign up</Button>
               </>
             )}
           </DrawerBody>

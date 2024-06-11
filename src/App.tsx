@@ -1,10 +1,11 @@
-import SignUpForm from "./components/SignUpForm";
 import './App.css'
 import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
 import NavBar from "./components/Navbar";
 import Post from "./models/post";
 import { useEffect, useState } from "react";
 import postService from "./services/postService";
+import PostCreate from './components/PostCreate'
+import PostCard from './components/PostCard'
 
 function App() {
 
@@ -30,27 +31,10 @@ function App() {
   };
 
   return (
-  
-    <ChakraProvider>
-      <Grid
-            templateAreas={{
-              base: `"nav" "main"`,
-              lg: `"nav`,
-            }}
-            templateRows={{
-              base: "1fr 1fr"
-            }}
-            templateColumns={{
-              base: "1fr",
-              lg: "1fr",
-            }}>
-
-          {/* Navbar */}
-          <GridItem gridArea={"nav"}>
-            <NavBar />
-          </GridItem>
-      </Grid>
-    </ChakraProvider>
+    <>
+      <PostCreate onAddPost={addPost} />
+      <PostCard posts={posts} onDeletePost={deletePost} onUpdatePost={updatePost}/>
+    </>
   )
 }
 

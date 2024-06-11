@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Heading, Box, Input, Button, Flex, Avatar, Text, Center, Modal, Grid, GridItem, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
+import { Heading, Box, Input, Button, Flex, Avatar, Text, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Post from '../models/post';
@@ -31,7 +31,6 @@ const PostCard = () => {
                 <Heading 
                     as='h2'
                     fontSize={25}
-                    fontFamily = 'Chakra Petch'
                     color="white"
                     >Emilie Hansen</Heading>
                     ) : (
@@ -40,7 +39,6 @@ const PostCard = () => {
                     <Heading 
                     as='h2'
                     fontSize={25}
-                    fontFamily = 'Chakra Petch'
                     color="white"
                     >Emilie Hansen</Heading>
                     <Button
