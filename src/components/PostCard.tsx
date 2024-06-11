@@ -2,6 +2,13 @@ import { useState } from 'react';
 import { Heading, Box, Input, Button, Flex, Avatar, Text, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
+import Post from '../models/post';
+
+  interface Props {
+    posts: Post[];
+    onDeletePost: (id: string) => void;
+    onUpdatePost: (id: string, content: string) => void;
+  }
 
 const PostCard = () => {
   // depends on user
