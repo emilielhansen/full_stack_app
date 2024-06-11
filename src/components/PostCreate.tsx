@@ -6,8 +6,10 @@ const PostCreate = () => {
         <>
             <Center>
                 <Box m={3} width={800}>
-                <Heading pb={2}>
-                    What is your bee?
+                <Heading 
+                pb={2}
+                fontFamily='Chakra Petch'>
+                    What do you wanna bee about?
                 </Heading>
                     <Input
                         type="text"

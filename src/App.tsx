@@ -2,8 +2,6 @@ import SignUpForm from "./components/SignUpForm";
 import './App.css'
 import { ChakraProvider, Grid, GridItem } from '@chakra-ui/react';
 import NavBar from "./components/Navbar";
-import LoginForm from "./components/LoginForm";
-import EditProfileForm from "./components/EditProfileForm";
 
 function App() {
 
@@ -27,26 +25,6 @@ function App() {
           <GridItem gridArea={"nav"}>
             <NavBar />
           </GridItem>
-
-          {/* Signup form */}
-          <GridItem  gridArea={"main"}>
-            {/* {<SignUpForm onSignUpSuccess={function (): void {
-            throw new Error("Function not implemented.");
-          } }/> } */}
-          </GridItem>
-
-          {/* Login form */}
-          <GridItem>
-            {/* {<LoginForm onLoginSuccess={function (): void {
-              throw new Error("Function not implemented.");
-            } } />} */}
-          </GridItem>
-
-          {/* PostFeed */}
-          <GridItem>
-          {/* {<EditProfile />} */}
-          </GridItem>
-
       </Grid>
     </ChakraProvider>
   )
