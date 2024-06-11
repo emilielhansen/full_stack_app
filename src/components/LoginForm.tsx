@@ -1,7 +1,7 @@
 // A form to sign into the page
 
 // LoginForm.tsx
-
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import {
   Box,
@@ -20,6 +20,7 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: '',
     password: '',
@@ -39,6 +40,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     // Simulate success
     onLoginSuccess();
   };
+
 
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px" >
@@ -90,7 +92,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
           </Button>
             <Text
               color="gray">
-              Don't have a user yet? <Link href="/signup" textDecoration="underline">Signup!</Link>
+              Don't have a user yet? <Link onClick={() => navigate('/signup')} textDecoration="underline">Signup!</Link>
             </Text>
             </Box>
         </form>
