@@ -26,6 +26,7 @@ const MyProfile = () => {
                     mt={5}
                     fontFamily = "Chakra Petch"
                     color= "white"
+                    size = "lg"
                     >Julie Elmgaard Jensen
                 </Heading>
                 <Text color="grey">@julieelmgaard</Text>

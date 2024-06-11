@@ -3,6 +3,7 @@
 // LoginForm.tsx
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -34,6 +35,8 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
     }));
   };
 
+  const navigate = useNavigate();
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     // post: Perform the actual login logic when you have a backend
@@ -45,10 +48,12 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px" >
 
-      <Center>
         {/* Logo */}
-        <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
-      </Center>
+        <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
+          <Center>
+            <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+          </Center>
+        </Link>
 
       {/* LoginForm */}
       <Box>

@@ -3,6 +3,7 @@
 // SignUpForm.tsx
 import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Box,
   Button,
@@ -63,12 +64,18 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
     setFile(target.files[0]);
   }
 
+  const navigate = useNavigate();
+
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px">
-      <Center>
-        {/* Logo */}
-        <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
-      </Center>
+
+      {/* Logo */}
+      <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
+          <Center>
+            <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+          </Center>
+        </Link>
+
       {/* SignUpForm */}
       <Box>
         <form onSubmit={handleSubmit}>

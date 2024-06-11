@@ -32,7 +32,7 @@ const NavBar: React.FC = () => {
               <MenuButton as={Button} backgroundColor="transparent" border="none" _hover={{ backgroundColor: 'transparent' }} _active={{ backgroundColor: 'transparent' }} p={0} m={0}>
                 <Avatar size="sm" name="Username" src="https://via.placeholder.com/32" />
               </MenuButton>
-              <MenuList bg="#282828" color="white" borderRadius="8px" borderColor="transparent" mt={2}>
+              <MenuList color="white" borderRadius="8px" borderColor="transparent" mt={2}>
                 <MenuItem icon={<FaUser />} onClick={() => navigate('/profile')}>Profile</MenuItem>
                 <MenuItem icon={<FaCog />} onClick={() => navigate('/edit-profile')}>Settings</MenuItem>
                 <MenuDivider />
