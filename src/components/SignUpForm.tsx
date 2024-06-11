@@ -1,6 +1,7 @@
 // A form to sign up/make a user
 
 // SignUpForm.tsx
+import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import {
   Box,
@@ -20,9 +21,10 @@ interface SignUpFormProps {
 }
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: '',
-    fullName: '',
+    fullname: '',
     email: '',
     password: '',
     confirmPassword: '',
@@ -92,7 +94,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             <Input
               type="text"
               name="fullname"
-              value={formData.fullName}
+              value={formData.fullname}
               onChange={handleInputChange}
               required
               variant='white'
@@ -159,7 +161,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             </Button>
             <Text
                 color="gray">
-                Already have a user? <Link href="/login" textDecoration="underline">Log in!</Link>
+                Already have a user? <Link  onClick={() => navigate('/login')} textDecoration="underline">Log in!</Link>
             </Text>
           </Box>
         </form>

@@ -47,7 +47,7 @@ const IndexPage = () => {
 
                         <Text
                             color="gray">
-                            Don't have a user yet? <Link href="/signup" textDecoration="underline">Signup!</Link>
+                            Don't have a user yet? <Link onClick={() => navigate('/signup')} textDecoration="underline">Signup!</Link>
                         </Text>
                     </Box>
                 </Box>

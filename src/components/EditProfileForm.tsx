@@ -16,7 +16,7 @@ interface EditProfileFormProps {
 
 const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) => {
   const [formData, setFormData] = useState({
-    fullName: '',
+    fullname: '',
     email: '',
   });
 
@@ -55,14 +55,11 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
             </FormLabel>
             <Input
               type="text"
-              name="fullName"
-              value={"user.fullName"} // Value from user model
+              name="fullname"
+              value={"user.fullname"} // Value from user model
               onChange={handleInputChange}
               required
-              backgroundColor="white"
-              color="black"
-              borderRadius="2"
-              fontFamily='Roboto'
+              variant='white'
             />
           </FormControl>
           {/* Email input field */}
