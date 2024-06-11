@@ -1,12 +1,10 @@
-import MyProfile from "../components/MyProfile";
-import PostCreate from "../components/PostCreate";
-import PostCard from "../components/PostCard";
 import PostCardContainer from "../components/PostCardContainer";
+import UserContainer from "../components/UserContainer";
 
 const ProfilePage = () => {
     return (
         <>
-        <MyProfile />
+        <UserContainer />
         <PostCardContainer />
         </>
     );
