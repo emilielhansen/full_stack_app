@@ -19,10 +19,10 @@ import axios from 'axios';
 interface SignUpFormProps {
   onSignUpSuccess: () => void;
 }
-const navigate = useNavigate();
+
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
-  
+
   const [formData, setFormData] = useState({
     username: '',
     fullname: '',
