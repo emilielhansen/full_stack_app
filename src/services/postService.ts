@@ -9,6 +9,12 @@ class PostService {
   async getAll(): Promise<Post[]> {
     const response = await this.http.get<Post[]>("/posts");
     return response.data;
+
+  }
+
+  async get(id: string): Promise<Post> {
+    const response = await this.http.get<Post>(`/posts/${id}`);
+    return response.data;
   }
 
   async create(content: string) {
@@ -17,7 +23,7 @@ class PostService {
   }
 
   async update(id: string, content: string): Promise<Post> {
-    const response = await this.http.put<Post>(`/posts/${id}`, { content });
+    const response = await this.http.put<Post>(`/posts/${id}`, { content: content });
     return response.data;
   }
 

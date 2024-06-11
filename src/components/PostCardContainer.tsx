@@ -1,25 +1,44 @@
-import { Box } from "@chakra-ui/react";
-import { ReactNode } from "react";
 
-//kopieret fra hans - skal rettes til
-interface Props {
-  children: ReactNode;
-}
+import Post from "./../models/post";
+import { useEffect, useState } from "react";
+import postService from "./../services/postService";
+import PostCreate from './../components/PostCreate'
+import PostCard from './../components/PostCard'
 
-const PostCardContainer = ({ children }: Props) => {
-  return (
-    <Box
-      _hover={{
-        boxShadow: "0 0 10px 1px rgba(0,0,0,0.2)",
-        transform: "scale(1.05)",
-        transition: "all 0.3s",
-      }}
-      overflow="hidden"
-      borderRadius={10}
-    >
-      {children}
-    </Box>
-  );
-};
 
-export default PostCardContainer;
+const PostCardContainer = () => {
+
+    const [posts, setPosts] = useState<Post[]>([]);
+
+    useEffect(() => {
+      loadPost();
+    }, []);
+  
+    const loadPost = async () => {
+      const posts = await postService.getAll();
+      setPosts(posts);
+    };
+  
+    const deletePost = async (id: string) => {
+      await postService.delete(id);
+      loadPost();
+    };
+  
+    const addPost = async (content: string) => {
+      const newPost = await postService.create(content);
+      setPosts([...posts, newPost]);
+    };
+  
+    const updatePost = async (id: string, content: string) => {
+      const newPost = await postService.update(id, content);
+      setPosts([...posts, newPost]);
+    };
+    return (
+        <>
+      <PostCreate onAddPost={addPost} />
+      <PostCard posts={posts} onDeletePost={deletePost} onUpdatePost={updatePost}/>
+        </>
+    );
+  };
+  
+  export default PostCardContainer;

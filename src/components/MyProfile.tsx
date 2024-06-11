@@ -33,8 +33,6 @@ const MyProfile = () => {
                 <Text color="grey">150 bee's</Text>
             </Box>
             <Box mt={3}>
-                <PostCreate></PostCreate>
-                <PostCard></PostCard>
             </Box>
         </Box>
     );

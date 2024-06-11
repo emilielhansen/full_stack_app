@@ -10,7 +10,8 @@ import Post from '../models/post';
     onUpdatePost: (id: string, content: string) => void;
   }
 
-const PostCard = () => {
+
+const PostCard = ({posts, onDeletePost, onUpdatePost }: Props) => {
   // depends on user
       const [isMyUser, setIsMyUser] = useState(false);
   // Open modal
@@ -19,7 +20,10 @@ const PostCard = () => {
   return (
     <>
     <Center>
-        <Box m={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5}>
+      <ul>
+      {posts.map((post) => (
+        <li key={post._id}>
+ <Box m={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5} >
             <Flex>
                 <Avatar 
                     boxSize='40px' 
@@ -32,15 +36,14 @@ const PostCard = () => {
                     as='h2'
                     fontSize={25}
                     color="white"
-                    >Emilie Hansen</Heading>
+                    >{post._id}</Heading>
                     ) : (
-                    <>
                     <Flex>
                     <Heading 
                     as='h2'
                     fontSize={25}
                     color="white"
-                    >Emilie Hansen</Heading>
+                    >{post._id}</Heading>
                     <Button
                     type='submit'
                     color='yellow.900'
@@ -70,39 +73,51 @@ const PostCard = () => {
                               <ModalHeader>Wanna edit or delete?</ModalHeader>
                               <ModalCloseButton />
                               <ModalBody>
-                                <Input variant='white'></Input>
+                                <Input variant='white' ></Input>
                               </ModalBody>
                               <ModalFooter>
                                 {/* Edit button */}
-                                <Button variant="yellowSmall" mr={3}>
+                                <Button
+                                variant="yellowSmall" 
+                                mr={3}
+                                onClick={() => onUpdatePost(post._id, post.content)}
+                                >
                                   Edit Bee
                                 </Button>
                                 {/* Delete button */}
-                                <Button variant="redSmall" >Delete Bee</Button>
+                                <Button 
+                                variant="redSmall" 
+                                onClick={() => onDeletePost(post._id)}
+                                >Delete Bee</Button>
                               </ModalFooter>
                             </ModalContent>
                           </Modal>
                     </Flex>
-                    </>
                     )}
 
                 {/* Post text */}
                     <Text color='grey'>
-                        Date
+                    {post.date}
                     </Text>
                 </Box>
             </Flex>
             <Box borderBottom={1} borderBottomColor='#3D3D3D'>
-              <Text py={5} fontSize={20} color="white">Jeg elsker Berta</Text>
+              <Text py={5} fontSize={20} color="white" >{post.content}</Text>
             </Box>
             <Box>
               {/* Like icon */}
+              {post.like}
               <AiFillLike
               cursor='pointer'>
               </AiFillLike>
             </Box>
         </Box>
+        </li>
+            ))}  
+      </ul>
+       
     </Center>
+
     </>
   );
 };
