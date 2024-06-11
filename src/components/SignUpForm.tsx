@@ -3,23 +3,11 @@
 // SignUpForm.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Box,
-  Button,
-  Input,
-  FormControl,
-  FormLabel,
-  Image,
-  Center,
-  Link,
-  Text
-} from '@chakra-ui/react';
-import axios from 'axios';
+import { Box, Button, Input, FormControl, FormLabel, Image, Center, Link, Text } from '@chakra-ui/react';
 
 interface SignUpFormProps {
   onSignUpSuccess: () => void;
 }
-
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
@@ -81,7 +69,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
             <FormLabel 
-            fontFamily='Roboto'
             color='white'
             >Username</FormLabel>
             <Input
@@ -95,7 +82,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
           </FormControl>
           <FormControl mb={4}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'
               >Full Name</FormLabel>
             <Input
@@ -109,7 +95,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
           </FormControl>
           <FormControl mb={4}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'
             >Email</FormLabel>
             <Input
@@ -123,7 +108,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
           </FormControl>
           <FormControl mb={4}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'
               >Password</FormLabel>
             <Input
@@ -137,7 +121,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
           </FormControl>
           <FormControl mb={4}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'
               >Confirm Password</FormLabel>
             <Input
@@ -151,7 +134,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
           </FormControl>
           <FormControl mb={8}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'
               >Upload profile image</FormLabel>
             <Input ml={-5}

@@ -3,17 +3,7 @@
 // LoginForm.tsx
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import {
-  Box,
-  Button,
-  Input,
-  FormControl,
-  FormLabel,
-  Image,
-  Center,
-  Text,
-  Link
-} from '@chakra-ui/react';
+import { Box, Button, Input, FormControl, FormLabel, Image, Center, Text, Link } from '@chakra-ui/react';
 
 interface LoginFormProps {
   onLoginSuccess: () => void;
@@ -58,7 +48,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
         <form onSubmit={handleSubmit}>
           <FormControl mb={4}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'>
               Email
             </FormLabel>
@@ -73,7 +62,6 @@ const LoginForm: React.FC<LoginFormProps> = ({ onLoginSuccess }) => {
           </FormControl>
           <FormControl mb={8}>
             <FormLabel 
-              fontFamily='Roboto'
               color='white'>
               Password
             </FormLabel>
