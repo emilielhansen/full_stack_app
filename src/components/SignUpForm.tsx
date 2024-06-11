@@ -1,7 +1,6 @@
 // A form to sign up/make a user
 
 // SignUpForm.tsx
-import { useNavigate } from 'react-router-dom';
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -20,9 +19,10 @@ import axios from 'axios';
 interface SignUpFormProps {
   onSignUpSuccess: () => void;
 }
+const navigate = useNavigate();
 
 const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
-  const navigate = useNavigate();
+  
   const [formData, setFormData] = useState({
     username: '',
     fullname: '',
