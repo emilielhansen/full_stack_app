@@ -1,11 +1,13 @@
-import PostCard from '../components/PostCard';
-import PostCreate from '../components/PostCreate';
+import PostCardContainer from "../components/PostCardContainer";
+
 
 const FeedPage = () => {
+
+
+
     return (
         <>
-        <PostCreate />
-        <PostCard />
+        <PostCardContainer />
         </>
     );
   };
