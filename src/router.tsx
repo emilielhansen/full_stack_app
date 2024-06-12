@@ -8,7 +8,6 @@ import EditProfilePage from "./pages/EditProfilePage";
 import ProfilePage from "./pages/ProfilePage";
 import FeedPage from "./pages/FeedPage";
 
-
 const router = createBrowserRouter([
   {
     path: "/",
@@ -19,7 +18,7 @@ const router = createBrowserRouter([
         { path: "/login", element: < LoginPage /> }, 
         { path: "/signup", element: < SignUpPage /> }, 
         { path: "/edit-profile", element: < EditProfilePage /> },
-        { path: "/profile", element: < ProfilePage /> },
+        { path: "/profile/:userId", element: < ProfilePage /> },
         { path: "/feed", element: < FeedPage /> },
     ],
   },

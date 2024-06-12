@@ -3,6 +3,7 @@ import { Box, Flex, Link, Button, Avatar, Image, Menu, MenuButton, MenuList, Men
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
+import logo_icon from '../assets/logo_icon.png'
 
 const NavBar: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(true); //State is set to true to see the logged in state
@@ -21,7 +22,7 @@ const NavBar: React.FC = () => {
       <Flex justify="space-between" align="center">
         {/* Logo */}
         <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
-          <Image src="src/assets/logo_icon.png" />
+          <Image src={logo_icon} />
         </Link>
 
         {/* Desktop Navigation */}
@@ -30,7 +31,7 @@ const NavBar: React.FC = () => {
             // Logged-in user avatar and dropdown menu
             <Menu>
               <MenuButton as={Button} backgroundColor="transparent" border="none" _hover={{ backgroundColor: 'transparent' }} _active={{ backgroundColor: 'transparent' }} p={0} m={0}>
-                <Avatar size="sm" name="Username" src="https://via.placeholder.com/32" />
+                <Avatar size="sm" name="Username" src="https://via.placeholder.com/" />
               </MenuButton>
               <MenuList color="white" borderRadius="8px" borderColor="transparent" mt={2}>
                 <MenuItem icon={<FaUser />} onClick={() => navigate('/profile')}>Profile</MenuItem>
@@ -61,7 +62,7 @@ const NavBar: React.FC = () => {
           {isLoggedIn && (
             <DrawerHeader>
               <Flex align="center">
-                <Avatar size="sm" name="Username" src="https://via.placeholder.com/32" mr={2} />
+                <Avatar size="sm" name="Username" src="https://via.placeholder.com/" mr={2} />
                 <Box>Username</Box>
               </Flex>
             </DrawerHeader>

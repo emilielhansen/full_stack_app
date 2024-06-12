@@ -31,7 +31,7 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
 
       {/* Centered profilepicture */}
       <Center>
-        <Avatar boxSize={{md: "150px", base:"120px"}} src="https://via.placeholder.com/32" border={50} />
+        <Avatar boxSize={{md: "150px", base:"120px"}} src="https://via.placeholder.com/" border={50} />
       </Center>
 
       {/* Edit profile form */}

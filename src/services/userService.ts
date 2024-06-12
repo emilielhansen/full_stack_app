@@ -11,6 +11,18 @@ class UserService {
     return response.data;
   }
 
+  async get(userId: string): Promise<User> {
+    const response = await this.http.get<User>(`/users/${userId}`);
+    return response.data;
+  }
+
+  async getCurrentUser(): Promise<User> {
+    // replace 'currentUserId' with the actual current user's ID
+    const currentUserId = 'currentUserId';
+
+    return this.get(currentUserId);
+  }
+
   async create(user: User): Promise<User> {
     const response = await this.http.post<User>("/users", user);
     return response.data;

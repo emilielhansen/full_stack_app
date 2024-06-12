@@ -1,40 +1,38 @@
-// Profile page header with profile picture and name
-
 import { Box, Heading, Avatar, Text } from "@chakra-ui/react";
-import PostCreate from "./PostCreate";
-import PostCard from "./PostCard";
+import User from "../models/user";
 
-//ProfilePage.tsx
+interface Props {
+    user: User;
+}
 
-const MyProfile = () => {
+const MyProfile = ({ user }: Props) => {
+
     return (
+        <>
         <Box>
-            <Box bg={"#FBC027"} mt={-5} h={300} width="100%" position="relative" zIndex={-1} margin={0}>
-                <Avatar 
-                    boxSize="150px" 
-                    src="https://via.placeholder.com/32" 
-                    m={5} 
-                    position="absolute" 
-                    bottom={0} 
-                    left={0} 
-                    maxWidth="100%" 
-                    maxHeight="100%"
-                    /> 
+            <Box key={user._id} bg={"#FBC027"} mt={-5} h={300} width="100%" position="relative" zIndex={-1} margin={0}>
+                <Avatar
+                    boxSize="150px"
+                    src="https://via.placeholder.com/"
+                    m={5}
+                    position="absolute"
+                    bottom={0}
+                    left={0}
+                    maxWidth="100%"
+                    maxHeight="100%" />
             </Box>
             <Box p={5}>
-                <Heading 
+                <Heading
                     mt={5}
-                    color= "white"
-                    size = "lg"
-                    >Julie Elmgaard Jensen
+                    size="lg"
+                >{user.fullname}
                 </Heading>
-                <Text color="grey">@julieelmgaard</Text>
-                <Text color="grey">Member since Date</Text>
-                <Text color="grey">150 bee's</Text>
-            </Box>
-            <Box mt={3}>
+                <Text color="grey">@{user.username}</Text>
+                <Text color="grey">Member since {user.createdAt}</Text>
+                <Text color="grey">150 bee's</Text>{/* Overvej om vi skal droppe den her - ellers skal vi huske at indsætte det i databasen */}
             </Box>
         </Box>
+        </>
     );
 };
 
