@@ -23,7 +23,8 @@ import { useState } from 'react';
                 <label htmlFor="content">
                 <Heading 
                 pb={2}
-                fontFamily='Chakra Petch'>
+                fontFamily='Chakra Petch'
+                fontSize={{ base: '20', md: '25', lg:'35'}}>
                     What do you wanna bee about?
                 </Heading>
                 </label>

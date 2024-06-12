@@ -27,7 +27,7 @@ const PostCard = ({posts, onDeletePost, onUpdatePost, user }: Props) => {
       <ul style={{ listStyleType: 'none' }}>
         {posts.map((post) => (
           <li key={post._id}>
-            <Box m={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5} >
+            <Box m={3} backgroundColor='gray.500' p={5} borderRadius={5} maxWidth={800} position='relative'>
               <Flex>
                   <Avatar 
                       boxSize='40px' 
@@ -38,19 +38,23 @@ const PostCard = ({posts, onDeletePost, onUpdatePost, user }: Props) => {
                   {isMyUser ? (
                   <Heading 
                       as='h2'
-                      fontSize={25}
+                      fontSize={{ base: '13', md: '20', lg:'25'}}
                       color="white"
+                      sx={{ wordBreak: 'break-word' }}
                       >{user?.fullname}</Heading>
                       ) : (
                       <Flex>
                       <Heading 
                       as='h2'
-                      fontSize={25}
+                      fontSize={{ base: '13', md: '20', lg:'25'}}
                       color="white"
+                      maxWidth={{ base: '125px', sm: '200px', md: '500px'}}
+                      sx={{ wordBreak: 'break-word' }}
                       >{post._id}</Heading>
                       <Button
                       type='submit'
                       color='yellow.900'
+                      fontSize={{ base: '12', md: '20'}}
                       ml={3}
                       background='transparent'
                       _hover={{
@@ -64,9 +68,15 @@ const PostCard = ({posts, onDeletePost, onUpdatePost, user }: Props) => {
                       </Button>
                       <Flex>
                         <HiDotsHorizontal
-                        color='#FBC027'
+                        color='yellow.900'
                         cursor='pointer'
+                        fontSize='24px'
                         onClick={onOpen}
+                        style={{
+                          position: 'absolute',
+                          top: '10px',
+                          right: '10px',}}
+
                       ></HiDotsHorizontal>
                       </Flex>
                       
@@ -100,13 +110,14 @@ const PostCard = ({posts, onDeletePost, onUpdatePost, user }: Props) => {
                       )}
 
                   {/* Post text */}
-                      <Text color='grey'>
+                      <Text color='grey'
+                      fontSize={{ base: '12', md: '20'}}>
                       {post.date}
                       </Text>
                   </Box>
               </Flex>
-              <Box borderBottom={1} borderBottomColor='#3D3D3D'>
-                <Text py={5} fontSize={20} color="white" >{post.content}</Text>
+              <Box borderBottom={1} borderBottomColor='gray.500'>
+                <Text py={5} fontSize={{ base: '15', md: '20', lg:'23'}} color="white" sx={{ wordBreak: 'break-word' }}>{post.content}</Text>
               </Box>
               <Box>
                 {/* Like icon */}
