@@ -18,7 +18,7 @@ const NavBar: React.FC = () => {
   };
 
   return (
-    <Box as="nav" bg="#181818" p={4} color="white" boxShadow="md" zIndex={999}>
+    <Box as="nav" bg="black.900" p={4} color="white" boxShadow="md" zIndex={999}>
       <Flex justify="space-between" align="center">
         {/* Logo */}
         <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
@@ -50,13 +50,13 @@ const NavBar: React.FC = () => {
         </Flex>
 
         {/* Mobile Navigation */}
-        <IconButton aria-label="Open menu" icon={<HamburgerIcon color="#FBC027" boxSize={8} />} variant="unstyled" display={{ base: 'flex', md: 'none' }} onClick={onOpen} />
+        <IconButton aria-label="Open menu" icon={<HamburgerIcon color="yellow.900" boxSize={8} />} variant="unstyled" display={{ base: 'flex', md: 'none' }} onClick={onOpen} />
       </Flex>
 
       {/* Drawer for mobile navigation */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="#181818" color="white">
+        <DrawerContent bg="black.900" color="white">
           <DrawerCloseButton />
           {/* Logged-in user header */}
           {isLoggedIn && (

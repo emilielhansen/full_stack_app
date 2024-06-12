@@ -45,19 +45,22 @@ const theme = extendTheme({
         900: "#FBC027",
       },
       schemeYellow: {
-        100: '#FFDE89',   // provided color
-        200: '#FBC027',   // provided color
-        800: '#FBC027',   // provided color
+        100: '#FFDE89',
+        200: '#FBC027',
+        800: '#FBC027',
       },
       red: {
         400: '#FF5038', 
         900: '#FB4027',
       },
       schemeRed: {
-        100: '#FF5038',   // light red
-        200: '#FF5038',   // lighter red
-        800: '#FB4027',   // lighter red
-      },  
+        100: '#FF5038',
+        200: '#FF5038',
+        800: '#FB4027',
+      },
+      black: {
+        900: '#181818'
+      },
     },
 
     components: {
