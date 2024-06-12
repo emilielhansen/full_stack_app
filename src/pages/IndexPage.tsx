@@ -22,13 +22,14 @@ const IndexPage = () => {
                         as='h1' 
                         fontFamily='Chakra Petch'
                         color='yellow.900'
-                        fontSize={50}
+                        fontSize={{ base: '30', md: '50' }}
+                        px={{ base: '10' }}
                         >Welcome to the BeeHive🐝
                         </Heading>
                     </Center>
                     <Center>
                         <Text
-                        fontSize={20}
+                        fontSize={{ base: '15', md: '20' }}
                         textAlign={{ base: 'center', md: 'left' }}
                         color="white">
                         Be a part of the hive and sign up now!
@@ -46,7 +47,9 @@ const IndexPage = () => {
                         </Button>
 
                         <Text
-                            color="gray">
+                            color="gray"
+                            fontSize={{ base: '12', md: '15' }}
+                            >
                             Don't have a user yet? <Link onClick={() => navigate('/signup')} textDecoration="underline">Signup!</Link>
                         </Text>
                     </Box>
