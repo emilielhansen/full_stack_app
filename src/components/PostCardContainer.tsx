@@ -19,7 +19,9 @@ const PostCardContainer = () => {
   
     const loadPost = async () => {
       const posts = await postService.getAll();
-      setPosts(posts);
+      // Sort posts by date in descending order
+      const sortedPosts = posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
+      setPosts(sortedPosts);
     };
 
     const loadUser = async () => {
