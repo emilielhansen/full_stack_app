@@ -29,7 +29,6 @@ const MyProfile = ({ user }: Props) => {
                 </Heading>
                 <Text color="grey">@{user.username}</Text>
                 <Text color="grey">Member since {user.createdAt}</Text>
-                <Text color="grey">150 bee's</Text>{/* Overvej om vi skal droppe den her - ellers skal vi huske at indsætte det i databasen */}
             </Box>
         </Box>
         </>

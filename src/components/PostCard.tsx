@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Heading, Box, Input, Button, Flex, Avatar, Text, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
@@ -29,32 +29,66 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
     onClose();
   };
 
+  const handleDeletePost = () => {
+    onDeletePost(currentPostId);
+    onClose();
+  };
+
   return (
     <Center>
       <ul style={{ listStyleType: 'none' }}>
         {posts.map((post) => (
           <li key={post._id}>
-            <Box m={3} width={800} backgroundColor='#3D3D3D' p={5} borderRadius={5}>
+           <Box m={3} backgroundColor='gray.500' p={5} borderRadius={5} maxWidth={800} position='relative'>
               <Flex>
                 <Avatar boxSize='40px' src='https://via.placeholder.com/' />
                 <Box ml={2}>
                   {isMyUser ? (
-                    <Heading as='h2' fontSize={25} color="white">{user?.fullname}</Heading>
+                    <Heading 
+                    as='h2' 
+                    fontSize={{ base: '13', md: '20', lg:'25'}} 
+                    color="white"
+                    sx={{ wordBreak: 'break-word' }}>
+                      {user?.fullname}
+                    </Heading>
                   ) : (
                     <Flex>
-                      <Heading as='h2' fontSize={25} color="white">{post._id}</Heading>
+                      <Heading 
+                      as='h2' 
+                      fontSize={{ base: '13', md: '20', lg:'25'}}
+                      color="white"
+                      maxWidth={{ base: '125px', sm: '200px', md: '500px'}}
+                      sx={{ wordBreak: 'break-word' }}
+                      >{post._id}
+                      </Heading>
                       <HiDotsHorizontal
-                        color='#FBC027'
+                        color='yellow.900'
                         cursor='pointer'
+                        fontSize='24px'
                         onClick={() => handleEditClick(post)}
-                      />
+                        style={{
+                          position: 'absolute',
+                          top: '10px',
+                          right: '10px',}}
+
+                      ></HiDotsHorizontal>
                     </Flex>
                   )}
-                  <Text color='grey'>{post.date}</Text>
+                  <Text 
+                  color='grey'
+                  fontSize={{ base: '12', md: '20'}}>
+                    {post.date}
+                  </Text>
                 </Box>
               </Flex>
-              <Box borderBottom={1} borderBottomColor='#3D3D3D'>
-                <Text py={5} fontSize={20} color="white">{post.content}</Text>
+              <Box borderBottom={1} borderBottomColor='gray.500'>
+              <Text 
+              py={5} 
+              fontSize={{ base: '15', md: '20', lg:'23'}} 
+              color="white" 
+              sx={{ wordBreak: 'break-word' }}>
+                {post.content}
+              </Text>
               </Box>
               <Box>
                 {post.like}
@@ -87,7 +121,7 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
             </Button>
             <Button
               variant="redSmall"
-              onClick={() => onDeletePost(currentPostId)}
+              onClick={handleDeletePost}
             >Delete Bee</Button>
           </ModalFooter>
         </ModalContent>
