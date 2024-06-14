@@ -1,4 +1,4 @@
-import axios from "axios";
+import axios, { AxiosResponse } from "axios";
 import User from "../models/user";
 
 class UserService {
@@ -19,7 +19,6 @@ class UserService {
   async getCurrentUser(): Promise<User> {
     // replace 'currentUserId' with the actual current user's ID
     const currentUserId = 'currentUserId';
-
     return this.get(currentUserId);
   }
 
@@ -36,6 +35,11 @@ class UserService {
   async delete(id: string): Promise<void> {
     await this.http.delete(`/users/${id}`);
   }
+
+  async login(user:User): Promise<User> {
+    return this.http.post('/users', user);
+  }
+
 }
 
 export default new UserService();
