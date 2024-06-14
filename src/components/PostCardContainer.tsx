@@ -34,7 +34,7 @@ const PostCardContainer = () => {
   
     const addPost = async (content: string) => {
       const newPost = await postService.create(content);
-      setPosts([...posts, newPost]);
+      setPosts([newPost, ...posts]);
     };
   
     const updatePost = async (id: string, content: string) => {
