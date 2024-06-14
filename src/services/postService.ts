@@ -23,7 +23,7 @@ class PostService {
   }
 
   async update(id: string, content: string): Promise<Post> {
-    const response = await this.http.put<Post>(`/posts/${id}`, { content: content });
+    const response = await this.http.put<Post>(`/posts/${id}`, { content });
     return response.data;
   }
 
