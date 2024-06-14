@@ -33,7 +33,7 @@ const theme = extendTheme({
         200: "#d3d3d3",
         300: "#b3b3b3",
         400: "#a0a0a0",
-        500: "#898989",
+        500: "#3D3D3D",
         600: "#6c6c6c",
         700: "#202020",
         800: "#121212",
@@ -45,19 +45,22 @@ const theme = extendTheme({
         900: "#FBC027",
       },
       schemeYellow: {
-        100: '#FFDE89',   // provided color
-        200: '#FBC027',   // provided color
-        800: '#FBC027',   // provided color
+        100: '#FFDE89',
+        200: '#FBC027',
+        800: '#FBC027',
       },
       red: {
         400: '#FF5038', 
         900: '#FB4027',
       },
       schemeRed: {
-        100: '#FF5038',   // light red
-        200: '#FF5038',   // lighter red
-        800: '#FB4027',   // lighter red
-      },  
+        100: '#FF5038',
+        200: '#FF5038',
+        800: '#FB4027',
+      },
+      black: {
+        900: '#181818'
+      },
     },
 
     components: {
