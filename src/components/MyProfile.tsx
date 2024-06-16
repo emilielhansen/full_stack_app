@@ -10,7 +10,7 @@ const MyProfile = ({ user }: Props) => {
     return (
         <>
         <Box>
-            <Box key={user._id} bg={"#FBC027"} mt={-5} h={300} width="100%" position="relative" zIndex={-1} margin={0}>
+            <Box key={user._id} backgroundColor='yellow.900' mt={-5} h={300} width="100%" position="relative" zIndex={-1} margin={0}>
                 <Avatar
                     boxSize="150px"
                     src="https://via.placeholder.com/"
