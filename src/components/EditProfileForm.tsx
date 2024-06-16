@@ -1,17 +1,21 @@
+// Update user profile form component
 import React, { useState } from 'react';
 import { Box, Button, Input, FormControl, FormLabel, Avatar, Center } from '@chakra-ui/react';
+import User from '../models/user';
 
 interface EditProfileFormProps {
-  updateUserSuccess: () => void; // Function to update user data
+  user: User;
+  onUpdateUser: (id: string, fullname: string, email: string) => void; 
+  onDeleteUser: (id: string) => void;
 }
 
-const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) => {
+const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormProps) => {
   const [formData, setFormData] = useState({
-    fullname: '',
-    email: '',
+    fullname: user.fullname,
+    email: user.email,
   });
 
-  // Function to handle input change
+  // Handle input change event to update formData state
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
@@ -20,33 +24,34 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
     }));
   };
 
-  // Function to handle form submission
-  const handleUpdate = (e: React.FormEvent) => {
+  // Handle form submission event
+  const handleUpdateUser = (e: React.FormEvent) => {
     e.preventDefault();
-    updateUserSuccess();
+    onUpdateUser(user._id, formData.fullname, formData.email);
+  };
+
+  // Function to handle user deletion
+  const handleDeleteUser = () => {
+    onDeleteUser(user._id);
   };
 
   return (
     <Box m="auto" mt={8} mb={8} p={4} maxWidth="400px">
-
-      {/* Centered profilepicture */}
+      {/* Centered profile picture */}
       <Center>
-        <Avatar boxSize={{md: "150px", base:"120px"}} src="https://via.placeholder.com/" border={50} />
+        <Avatar boxSize={{ md: "150px", base:"120px" }} src={user.image} border={50} />
       </Center>
 
       {/* Edit profile form */}
       <Box>
-        <form onSubmit={handleUpdate}>
+        <form onSubmit={handleUpdateUser}>
           {/* Full name input field */}
           <FormControl mb={4}>
-            <FormLabel 
-            color='white'>
-            Full name
-            </FormLabel>
+            <FormLabel color='white'>Full name</FormLabel>
             <Input
               type="text"
               name="fullname"
-              value={"user.fullname"} // Value from user model
+              value={formData.fullname}
               onChange={handleInputChange}
               required
               variant='white'
@@ -54,14 +59,11 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
           </FormControl>
           {/* Email input field */}
           <FormControl mb={8}>
-            <FormLabel 
-              color='white'>
-              Email
-            </FormLabel>
+            <FormLabel color='white'>Email</FormLabel>
             <Input
               type="email"
               name="email"
-              value={"user.email"} // Value from user model
+              value={formData.email}
               onChange={handleInputChange}
               required
               variant='white'
@@ -69,17 +71,13 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
           </FormControl>
           {/* Update button */}
           <Box textAlign="center" mb={4}>
-            <Button
-              type="submit"
-              variant="yellow">
+            <Button type="submit" variant="yellow">
               Update Profile
             </Button>
           </Box>
           {/* Delete button */}
           <Box textAlign="center">
-            <Button
-              type="submit"
-              variant="red">
+            <Button variant="red" onClick={handleDeleteUser}>
               Delete Profile
             </Button>
           </Box>
@@ -90,4 +88,3 @@ const EditProfileForm: React.FC<EditProfileFormProps> = ({ updateUserSuccess }) 
 };
 
 export default EditProfileForm;
-

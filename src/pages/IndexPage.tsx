@@ -1,3 +1,4 @@
+// Index page
 import { Grid, GridItem, Heading, Box, Text, Image, Center, Button, Link } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
 

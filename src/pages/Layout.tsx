@@ -1,3 +1,4 @@
+// Page layout
 import { Box } from "@chakra-ui/react";
 import NavBar from "../components/Navbar";
 import { Outlet } from "react-router-dom";

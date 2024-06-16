@@ -1,3 +1,4 @@
+// Signup Form component
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Box, Input, Button, Center, Image, Link, Text, useToast, FormControl, FormLabel } from '@chakra-ui/react';
@@ -5,6 +6,7 @@ import UserService from '../services/userService';
 import User from '../models/user';
 import { Validation } from '../validation/validate';
 
+// Interface for SignUpForm props
 interface SignUpFormProps {
   onSignUpSuccess: () => void;
 }
@@ -84,49 +86,49 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   };
 
   // Function to handle form submission
-const handleSubmit = async (e: React.FormEvent) => {
-  e.preventDefault();
-  if (!validateForm()) return;
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) return;
 
-  try {
-    // Create new user object from form data
-    const newUser: Partial<User> = {
-      username: formData.username,
-      fullname: formData.fullname,
-      email: formData.email,
-      password: formData.password,
-      image: image ? URL.createObjectURL(image) : '',  // Convert image file to a URL string
-      createdAt: new Date().toISOString(),  // Set the creation date
-    };
+    try {
+      // Create new user object from form data
+      const newUser: Partial<User> = {
+        username: formData.username,
+        fullname: formData.fullname,
+        email: formData.email,
+        password: formData.password,
+        image: image ? URL.createObjectURL(image) : '', // Convert image file to a URL string
+        createdAt: new Date().toISOString(), // Set the creation date
+      };
 
-    // Call the create user API
-    const createdUser = await UserService.create(newUser as User);
+      // Call the create user API
+      const createdUser = await UserService.create(newUser as User);
 
-    // Show success toast notification
-    toast({
-      title: "Account created.",
-      description: "We've created your account for you.",
-      status: "success",
-      duration: 9000,
-      isClosable: true,
-    });
+      // Show success toast notification
+      toast({
+        title: "Account created.",
+        description: "We've created your account for you.",
+        status: "success",
+        duration: 9000,
+        isClosable: true,
+      });
 
-    // Call the success callback and navigate to login page
-    onSignUpSuccess();
-    navigate('/login');
+      // Call the success callback and navigate to login page
+      onSignUpSuccess();
+      navigate('/login');
 
-  } catch (error) {
-    // Set general error message if account creation fails
-    console.error("Error creating account:", error);
-    toast({
-      title: "Failed to create account.",
-      description: "Please try again later.",
-      status: "error",
-      duration: 9000,
-      isClosable: true,
-    });
-  }
-};
+    } catch (error) {
+      // Set general error message if account creation fails
+      console.error("Error creating account:", error);
+      toast({
+        title: "Failed to create account.",
+        description: "Please try again later.",
+        status: "error",
+        duration: 9000,
+        isClosable: true,
+      });
+    }
+  };
 
   return (
     <Box m="auto" mt={8} p={4} maxWidth="400px">
