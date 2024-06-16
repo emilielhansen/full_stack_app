@@ -1,13 +1,19 @@
-import axios, { AxiosResponse } from "axios";
+import axios, { AxiosInstance } from "axios";
+const API_URL = 'http://localhost:3000/api';
 import User from "../models/user";
 
 class UserService {
-  http = axios.create({
-    baseURL: import.meta.env.VITE_API_URL,
-  });
+  http: AxiosInstance;
+
+  constructor() {
+    this.http = axios.create({
+      baseURL: import.meta.env.VITE_API_URL,
+      withCredentials: true, // Inkluderer cookies med anmodninger
+    });
+  }
 
   async getAll(): Promise<User[]> {
-    const response = await this.http.get<User[]>("/users");
+    const response = await this.http.get<User[]>('/users');
     return response.data;
   }
 
@@ -23,7 +29,7 @@ class UserService {
   }
 
   async create(user: User): Promise<User> {
-    const response = await this.http.post<User>("/users", user);
+    const response = await this.http.post<User>('/users', user);
     return response.data;
   }
 
@@ -39,10 +45,23 @@ class UserService {
     await this.http.delete(`/users/${id}`);
   }
 
-  async login(user:User): Promise<User> {
-    return this.http.post('/users', user);
+  async login(email: string, password: string): Promise<User | null> {
+    try {
+      const response = await this.http.post<User>('/users/login', { email, password });
+      return response.data;
+    } catch (error) {
+      console.error('Login failed:', error);
+      return null;
+    }
   }
 
+  async logout(): Promise<void> {
+    try {
+      await this.http.post('/users/logout');
+    } catch (error) {
+      console.error('Logout failed:', error);
+    }
+  }
 }
 
 export default new UserService();

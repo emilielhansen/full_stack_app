@@ -1,23 +1,25 @@
 // Navbar component
-import React, { useState } from 'react';
+import React from 'react';
 import { Box, Flex, Link, Button, Avatar, Image, Menu, MenuButton, MenuList, MenuItem, MenuDivider, IconButton, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
 import { FaUser, FaCog, FaSignOutAlt } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import logo_icon from '../assets/logo_icon.png';
+import UserService from '../services/userService';
+import { useAuth } from '../hoc/authContext';
 
 const NavBar: React.FC = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(true); // State to manage login status
+  const { isLoggedIn, setUser } = useAuth();
   const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI hook to manage Drawer state
-  const navigate = useNavigate(); // Hook to navigate between routes
+  const navigate = useNavigate();  // Hook to navigate between routes
 
   // User logout function
-  const handleLogout = () => {
-    // Add some more, like removing session
-    setIsLoggedIn(false);
-    navigate('/');
+  const handleLogout = async () => {
+    await UserService.logout();
+    setUser(null);
+    navigate('/login');
   };
-
+  
   return (
     <Box as="nav" bg="black.900" p={4} color="white" boxShadow="md" zIndex={999}>
       <Flex justify="space-between" align="center">
