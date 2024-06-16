@@ -7,6 +7,7 @@ import SignUpPage from "./pages/SignupPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import ProfilePage from "./pages/ProfilePage";
 import FeedPage from "./pages/FeedPage";
+import RequireAuth from "./hoc/RequireAuth";
 
 const router = createBrowserRouter([
   {
@@ -16,10 +17,18 @@ const router = createBrowserRouter([
     children: [
         { path: "/", element: < IndexPage /> }, 
         { path: "/login", element: < LoginPage /> }, 
-        { path: "/signup", element: < SignUpPage /> }, 
+        { path: "/signup", element: < SignUpPage /> },
         { path: "/edit-profile", element: < EditProfilePage /> },
         { path: "/profile/:userId", element: < ProfilePage /> },
         { path: "/feed", element: < FeedPage /> },
+        // {
+        //   element: <RequireAuth />,
+        //   children: [
+        //     { path: "/edit-profile", element: < EditProfilePage /> },
+        //     { path: "/profile/:userId", element: < ProfilePage /> },
+        //     { path: "/feed", element: < FeedPage /> },
+        //   ]
+        // }
     ],
   },
 ]);
