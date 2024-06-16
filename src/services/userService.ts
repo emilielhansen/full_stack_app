@@ -33,8 +33,11 @@ class UserService {
     return response.data;
   }
 
-  async update(id: string, user: User): Promise<User> {
-    const response = await this.http.put<User>(`/users/${id}`, user);
+  async update(id: string, fullname: string, email: string): Promise<User> {
+    const response = await this.http.put<User>(`/users/${id}`, {
+      fullname: fullname,
+      email: email
+    });
     return response.data;
   }
 

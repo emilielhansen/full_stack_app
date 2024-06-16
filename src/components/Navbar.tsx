@@ -1,3 +1,4 @@
+// Navbar component
 import React from 'react';
 import { Box, Flex, Link, Button, Avatar, Image, Menu, MenuButton, MenuList, MenuItem, MenuDivider, IconButton, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -9,8 +10,8 @@ import { useAuth } from '../hoc/authContext';
 
 const NavBar: React.FC = () => {
   const { isLoggedIn, setUser } = useAuth();
-  const { isOpen, onOpen, onClose } = useDisclosure();
-  const navigate = useNavigate();
+  const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI hook to manage Drawer state
+  const navigate = useNavigate();  // Hook to navigate between routes
 
   // User logout function
   const handleLogout = async () => {

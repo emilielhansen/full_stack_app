@@ -1,3 +1,4 @@
+// Error page
 import { isRouteErrorResponse, useRouteError } from "react-router-dom";
 import NavBar from "../components/Navbar";
 import { Box, Heading, Text } from "@chakra-ui/react";
@@ -9,7 +10,7 @@ const ErrorPage = () => {
     <>
       <NavBar />
       <Box padding={4}>
-        <Heading>You hit an error...</Heading>
+        <Heading>You have been stung...</Heading>
         <Text>
           {isRouteErrorResponse(error)
             ? "Page not found"

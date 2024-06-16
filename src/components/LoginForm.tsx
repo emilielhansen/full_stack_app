@@ -27,19 +27,20 @@ import { useAuth } from '../hoc/authContext';
       }
     };
 
-  return (
-    <Box m="auto" mt={8} p={4} maxWidth="400px" >
 
-        {/* Logo */}
-        <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
-          <Center>
-            <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
-          </Center>
-        </Link>
+  return (
+    <Box m="auto" mt={8} p={4} maxWidth="400px">
+      {/* Logo */}
+      <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
+        <Center>
+          <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+        </Center>
+      </Link>
 
       {/* LoginForm */}
       <Box>
         <form onSubmit={handleSubmit}>
+          {/* Email input field */}
           <FormControl mb={4}>
             <FormLabel color='white'>Email</FormLabel>
             <Input
@@ -51,6 +52,7 @@ import { useAuth } from '../hoc/authContext';
               variant='white'
             />
           </FormControl>
+          {/* Password input field */}
           <FormControl mb={8}>
             <FormLabel color='white'>Password</FormLabel>
             <Input
@@ -63,13 +65,12 @@ import { useAuth } from '../hoc/authContext';
             />
           </FormControl>
           <Box textAlign="center" mb={4}>
-            <Button type="submit" variant="yellow">Login</Button>
-            
+            <Button type="submit" variant="yellow">Login</Button>           
             <Text
               color="gray">
               Don't have a user yet? <Link onClick={() => navigate('/signup')} textDecoration="underline">Signup!</Link>
             </Text>
-            </Box>
+          </Box>
         </form>
       </Box>
     </Box>

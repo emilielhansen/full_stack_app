@@ -1,11 +1,13 @@
 import LoginForm from "../components/LoginForm";
 
-// onLogin={}
+// Implement an "onLogin" function
 
 const Login = () => {
     return (
         <>
-        <LoginForm />
+        <LoginForm onLoginSuccess={function (): void {
+                throw new Error("Function not implemented.");
+            } } />
         </>
     );
   };
