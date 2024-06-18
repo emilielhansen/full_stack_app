@@ -5,6 +5,7 @@ import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Post from '../models/post';
 import User from '../models/user';
+import sanitizeHtml from 'sanitize-html';
 
 interface Props {
   posts: Post[];
@@ -14,25 +15,22 @@ interface Props {
 }
 
 const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
-  const [isMyUser, setIsMyUser] = useState(false); // State to check if the user is the post owner
-  const { isOpen, onOpen, onClose } = useDisclosure(); // Chakra UI hook to manage Modal state
-  const [editContent, setEditContent] = useState(""); // State to store the content being edited
-  const [currentPostId, setCurrentPostId] = useState(""); // State to store the ID of the post being edited
+  const [isMyUser, setIsMyUser] = useState(false);
+  const { isOpen, onOpen, onClose } = useDisclosure();
+  const [editContent, setEditContent] = useState("");
+  const [currentPostId, setCurrentPostId] = useState("");
 
-  // Function to handle edit button click
   const handleEditClick = (post: Post) => {
     setEditContent(post.content);
     setCurrentPostId(post._id);
     onOpen();
   };
 
-  // Function to handle post update
   const handleUpdatePost = () => {
     onUpdatePost(currentPostId, editContent);
     onClose();
   };
 
-  // Function to handle post deletion
   const handleDeletePost = () => {
     onDeletePost(currentPostId);
     onClose();
@@ -43,13 +41,10 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
       <ul style={{ listStyleType: 'none' }}>
         {posts.map((post) => (
           <li key={post._id}>
-            {/* Post container */}
-            <Box m={3} backgroundColor='gray.500' p={5} borderRadius={5} maxWidth={800} position='relative'>
+            <Box width={{ base: '400px', md: '750px', lg:'800px'}} m={3} backgroundColor='gray.500' p={5} borderRadius={5} position='relative'>
               <Flex>
-                <Avatar boxSize='40px' src='https://via.placeholder.com/' />
                 <Box ml={2}>
                   {isMyUser ? (
-                    // Display user's full name if it's their post
                     <Heading 
                       as='h2' 
                       fontSize={{ base: '13', md: '20', lg:'25'}} 
@@ -60,7 +55,6 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                     </Heading>
                   ) : (
                     <Flex>
-                      {/* Display post ID (this should probably be the username or full name) */}
                       <Heading 
                         as='h2' 
                         fontSize={{ base: '13', md: '20', lg:'25'}}
@@ -68,9 +62,8 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                         maxWidth={{ base: '125px', sm: '200px', md: '500px'}}
                         sx={{ wordBreak: 'break-word' }}
                       >
-                        {post._id}
+                        {user?.username}
                       </Heading>
-                      {/* Edit button */}
                       <HiDotsHorizontal
                         color='yellow.900'
                         cursor='pointer'
@@ -84,7 +77,6 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                       />
                     </Flex>
                   )}
-                  {/* Post date */}
                   <Text 
                     color='grey'
                     fontSize={{ base: '12', md: '20'}}
@@ -93,18 +85,16 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                   </Text>
                 </Box>
               </Flex>
-              {/* Post content */}
               <Box borderBottom={1} borderBottomColor='gray.500'>
+                {/* Sanitize post content */}
                 <Text 
                   py={5} 
                   fontSize={{ base: '15', md: '20', lg:'23'}} 
                   color="white" 
                   sx={{ wordBreak: 'break-word' }}
-                >
-                  {post.content}
-                </Text>
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
+                />
               </Box>
-              {/* Like button and count */}
               <Box>
                 {post.like}
                 <AiFillLike cursor='pointer' />
@@ -114,7 +104,6 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
         ))}
       </ul>
 
-      {/* Modal for editing and deleting post */}
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />
         <ModalContent>

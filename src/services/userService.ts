@@ -22,22 +22,24 @@ class UserService {
     return response.data;
   }
 
-  async getCurrentUser(): Promise<User> {
-    // replace 'currentUserId' with the actual current user's ID
-    const currentUserId = 'currentUserId';
-    return this.get(currentUserId);
-  }
+  async getCurrentUser(): Promise<User | null> {
+    try {
+      const response = await this.http.get<User>('/users/current'); // Adjust endpoint as per your server setup
+      return response.data as User; // Assuming your API returns user data
+    } catch (error) {
+      console.error('Error fetching current user:', error);
+      throw error; // Optionally handle error or return null
+    }
+  };
 
   async create(user: User): Promise<User> {
     const response = await this.http.post<User>('/users', user);
     return response.data;
   }
 
-  async update(id: string, fullname: string, email: string): Promise<User> {
+  async update(id: string, fullname: string): Promise<User> {
     const response = await this.http.put<User>(`/users/${id}`, {
-      fullname: fullname,
-      email: email
-    });
+      fullname});
     return response.data;
   }
 
