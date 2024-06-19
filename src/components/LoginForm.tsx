@@ -5,7 +5,11 @@ import { Box, Button, Input, FormControl, FormLabel, Image, Center, Text, Link }
 import UserService from '../services/userService';
 import { useAuth } from '../hoc/authContext';
 
-  const LoginForm: React.FC = () => {
+    interface Props {
+      onLoginSuccess: () => void;
+    }
+
+  const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -19,6 +23,7 @@ import { useAuth } from '../hoc/authContext';
           setUser(user);
           console.log('User logged in:', user);
           navigate(`/profile/${user._id}`);
+          onLoginSuccess();
         } else {
           console.log('Invalid credentials or user not found');
         }
