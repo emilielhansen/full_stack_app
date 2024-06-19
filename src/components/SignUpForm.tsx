@@ -1,10 +1,10 @@
 // Signup Form component
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Box, Input, Button, Center, Image, Link, Text, useToast, FormControl, FormLabel } from '@chakra-ui/react';
 import UserService from '../services/userService';
 import User from '../models/user';
 import { Validation } from '../validation/validate';
+import { useNavigate } from 'react-router-dom';
 
 // Interface for SignUpForm props
 interface SignUpFormProps {
@@ -30,7 +30,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   // Hook to display toast notifications
   const toast = useToast();
 
-  // Hook to navigate to different routes
   const navigate = useNavigate();
 
   // Function to handle input changes
@@ -40,13 +39,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  // Function to handle profile image change
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
   };
 
   // Function to validate form data
@@ -115,7 +107,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
       // Call the success callback and navigate to login page
       onSignUpSuccess();
-      navigate('/login');
 
     } catch (error) {
       // Set general error message if account creation fails
@@ -201,16 +192,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
               variant='white'
             />
             {errors.confirmPassword && <Text color="red.500">{errors.confirmPassword}</Text>}
-          </FormControl>
-          <FormControl mb={8}>
-            <FormLabel color='white'>Upload profile image</FormLabel>
-            <Input
-              ml={-5}
-              type="file"
-              color='white'
-              border={0}
-              onChange={handleImageChange}
-            />
           </FormControl>
           <Box textAlign="center" mb={4}>
             <Button type="submit" variant='yellow'>

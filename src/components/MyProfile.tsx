@@ -17,33 +17,22 @@ const MyProfile = ({ user }: Props) => {
                 <Box 
                     key={user._id} 
                     bg={"#FBC027"} 
-                    mt={-5} 
-                    h={300} 
+                    mt={-5}
+                    mb={5} 
                     width="100%" 
                     position="relative" 
                     zIndex={-1} 
                     margin={0}
                 >
-                    {/* User avatar */}
-                    <Avatar
-                        boxSize="150px"
-                        src="https://via.placeholder.com/"
-                        m={5}
-                        position="absolute"
-                        bottom={0}
-                        left={0}
-                        maxWidth="100%"
-                        maxHeight="100%" 
-                    />
-                </Box>
                 {/* User information section */}
-                <Box p={5}>
+                <Box p={5} m={5}>
                     {/* User full name */}
-                    <Heading mt={5} size="lg">{user.fullname}</Heading>
+                    <Heading size="lg">{user.fullname}</Heading>
                     {/* User username */}
-                    <Text color="grey">@{user.username}</Text>
+                    <Text color="white">@{user.username}</Text>
                     {/* User creation date */}
-                    <Text color="grey">Member since {user.createdAt}</Text>
+                    <Text color="white">Member since {user.createdAt}</Text>
+                </Box>
                 </Box>
             </Box>
         </>

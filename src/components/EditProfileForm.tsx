@@ -1,47 +1,44 @@
-// Update user profile form component
 import React, { useState } from 'react';
-import { Box, Button, Input, FormControl, FormLabel, Avatar, Center } from '@chakra-ui/react';
+import { Box, Button, Input, FormControl, FormLabel } from '@chakra-ui/react';
 import User from '../models/user';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../hoc/authContext';
+import UserService from '../services/userService';
 
 interface EditProfileFormProps {
   user: User;
-  onUpdateUser: (id: string, fullname: string, email: string) => void; 
+  onUpdateUser: (id: string, fullname: string) => void;
   onDeleteUser: (id: string) => void;
 }
 
 const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormProps) => {
-  const [formData, setFormData] = useState({
-    fullname: user.fullname,
-    email: user.email,
-  });
+  const [editUser, setEditUser] = useState(user.fullname); // State to store the edited full name
+  const [currentUserId, setCurrentUserId] = useState(user._id); // State to store the ID of the post being edited
+  const navigate = useNavigate();
+  const { isLoggedIn, setUser } = useAuth();
 
-  // Handle input change event to update formData state
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData((prevData) => ({
-      ...prevData,
-      [name]: value,
-    }));
+  // Function to handle edit button click
+  const handleEdit = (user: User) => {
+    setEditUser(user.fullname);
+    setCurrentUserId(user._id);
   };
 
   // Handle form submission event
-  const handleUpdateUser = (e: React.FormEvent) => {
-    e.preventDefault();
-    onUpdateUser(user._id, formData.fullname, formData.email);
+  const handleUpdateUser = () => {
+    onUpdateUser(currentUserId, editUser);
+    // Optionally reset the form or perform other actions after updating
   };
 
   // Function to handle user deletion
-  const handleDeleteUser = () => {
-    onDeleteUser(user._id);
+  const handleDeleteUser = async () => {
+    onDeleteUser(currentUserId);
+    await UserService.logout();
+    setUser(null);
+    navigate('/login');
   };
 
   return (
     <Box m="auto" mt={8} mb={8} p={4} maxWidth="400px">
-      {/* Centered profile picture */}
-      <Center>
-        <Avatar boxSize={{ md: "150px", base:"120px" }} src={user.image} border={50} />
-      </Center>
-
       {/* Edit profile form */}
       <Box>
         <form onSubmit={handleUpdateUser}>
@@ -51,20 +48,8 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
             <Input
               type="text"
               name="fullname"
-              value={formData.fullname}
-              onChange={handleInputChange}
-              required
-              variant='white'
-            />
-          </FormControl>
-          {/* Email input field */}
-          <FormControl mb={8}>
-            <FormLabel color='white'>Email</FormLabel>
-            <Input
-              type="email"
-              name="email"
-              value={formData.email}
-              onChange={handleInputChange}
+              value={editUser}
+              onChange={(e) => setEditUser(e.target.value)}
               required
               variant='white'
             />
