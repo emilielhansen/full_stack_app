@@ -5,6 +5,7 @@ import UserService from '../services/userService';
 import User from '../models/user';
 import { Validation } from '../validation/validate';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 // Interface for SignUpForm props
 interface SignUpFormProps {
@@ -125,7 +126,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
       {/* Logo */}
       <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
         <Center>
-          <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+          <Image boxSize="200px" src={logo} alt="Logo" />
         </Center>
       </Link>
 
@@ -208,3 +209,4 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 };
 
 export default SignUpForm;
+
