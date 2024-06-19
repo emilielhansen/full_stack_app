@@ -14,7 +14,8 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react-jsx"
+    "jsx": "react-jsx",
+    "types": ["vitest/globals"],
   },
   "include": ["src", "full_stack_api/dto", "full_stack_api/db", "full_stack_api/models", "full_stack_api/routers"],
   "references": [{ "path": "./tsconfig.node.json" }]
