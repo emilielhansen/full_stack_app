@@ -9,7 +9,6 @@ const Login = () => {
 
     // Function to load current user
     const loginSuccess = async () => {
-        navigate('/login');
     };
 
     return (
