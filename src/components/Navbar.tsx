@@ -70,11 +70,11 @@ const NavBar: React.FC = () => {
       {/* Drawer for mobile navigation */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="black.900" color="white">
+        <DrawerContent bg="black.900" color="white" pl={10}>
           <DrawerCloseButton />
           {/* Hamburger menu icon for mobile */}
           <Flex justify="flex-end" py={2} pr={2}>
-            <IconButton aria-label="Close menu" icon={<HamburgerIcon color="white" />} onClick={onClose} />
+            <IconButton aria-label="Close menu" onClick={onClose} />
           </Flex>
           {/* Drawer links and buttons */}
           {isLoggedIn ? (
@@ -85,7 +85,7 @@ const NavBar: React.FC = () => {
                   <FaUser /><Box ml={2}>Profile</Box>
                 </Flex>
               </Link>
-              <Link onClick={() => navigate('/edit-profile')} mb={4} display="block">
+              <Link onClick={() => navigate(`/edit-profile/${userId}`)} mb={4} display="block">
                 <Flex align="center">
                   <FaCog /><Box ml={2}>Settings</Box>
                 </Flex>

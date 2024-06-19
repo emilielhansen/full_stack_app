@@ -89,7 +89,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
         fullname: formData.fullname,
         email: formData.email,
         password: formData.password,
-        image: image ? URL.createObjectURL(image) : '', // Convert image file to a URL string
         createdAt: new Date().toISOString(), // Set the creation date
       };
 
