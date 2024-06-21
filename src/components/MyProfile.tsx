@@ -1,6 +1,10 @@
+//Profile info from logged in user
+import { Box, Heading, Avatar, Text } from "@chakra-ui/react";
 import { Box, Heading, Text } from "@chakra-ui/react";
 import sanitizeHtml from 'sanitize-html';
 import User from "../models/user";
+import { format } from 'date-fns';
+import { da } from 'date-fns/locale';
 
 // Define the Props interface to type-check the user prop
 interface Props {
@@ -9,10 +13,10 @@ interface Props {
 
 // MyProfile component that accepts a user prop
 const MyProfile = ({ user }: Props) => {
-    // Sanitize user inputs
+
     const sanitizedFullName = sanitizeHtml(user.fullname);
     const sanitizedUsername = sanitizeHtml(user.username);
-    const sanitizedCreatedAt = sanitizeHtml(user.createdAt);
+    const sanitizedCreatedAt = sanitizeHtml(format(new Date(user.createdAt), 'dd. MMM yyyy', { locale: da }));
 
     return (
         <>
@@ -32,12 +36,12 @@ const MyProfile = ({ user }: Props) => {
                 {/* User information section */}
                 <Box p={5} m={5}>
                     {/* User full name */}
-                    <Heading size="lg">Full name: {sanitizedFullName}</Heading>
+                    <Heading size="lg">{sanitizedFullName}</Heading>
                     {/* User username */}
-                    <Text color="white">Username @{sanitizedUsername}</Text>
+                    <Text color="white">@{sanitizedUsername}</Text>
                     {/* User creation date */}
                     <Text color="white">Member since {sanitizedCreatedAt}</Text>
-                </Box>
+
                 </Box>
             </Box>
         </>

@@ -1,9 +1,43 @@
 import React, { useState } from 'react';
-import { Box, Button, Input, FormControl, FormLabel, Heading } from '@chakra-ui/react';
+
+import { Box, Button, Input, FormControl, FormLabel, Avatar, Center, Heading } from '@chakra-ui/react';
 import User from '../models/user';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../hoc/authContext';
 import UserService from '../services/userService';
+
+// interface EditProfileFormProps {
+//   user: User;
+//   onUpdateUser: (id: string, fullname: string, email: string) => void; 
+//   onDeleteUser: (id: string) => void;
+// }
+
+// const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormProps) => {
+//   const [formData, setFormData] = useState({
+//     fullname: user.fullname,
+//     email: user.email,
+//   });
+
+//   // Handle input change event to update formData state
+//   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+//     const { name, value } = e.target;
+//     setFormData((prevData) => ({
+//       ...prevData,
+//       [name]: value,
+//     }));
+//   };
+
+//   // Handle form submission event
+//   const handleUpdateUser = (e: React.FormEvent) => {
+//     e.preventDefault();
+//     onUpdateUser(user._id, formData.fullname, formData.email);
+//   };
+
+//   // Function to handle user deletion
+//   const handleDeleteUser = () => {
+//     onDeleteUser(user._id);
+//   };
+
 
 interface EditProfileFormProps {
   user: User;
@@ -48,12 +82,24 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
             <Input
               type="text"
               name="fullname"
-              value={editUser}
-              onChange={(e) => setEditUser(e.target.value)}
+              value={user.fullname}
+              // onChange={handleInputChange}
               required
               variant='white'
-            /> */}
-          {/* </FormControl> */}
+            />
+          </FormControl>
+          {/* Email input field */}
+          <FormControl mb={8}>
+            <FormLabel color='white'>Email</FormLabel>
+            <Input
+              type="email"
+              name="email"
+              value={user.email}
+              // onChange={handleInputChange}
+              required
+              variant='white'
+            />
+          </FormControl>
           {/* Update button */}
           {/* <Box textAlign="center" mb={4}>
             <Button type="submit" variant="yellow">

@@ -14,6 +14,8 @@ const UserContainer = () => {
     useEffect(() => {
         if (userId) {
             loadUser(userId); // Fetch user data when userId changes
+        } else {
+            loadCurrentUser(); // Fetch user data from session if no userId in URL
         }
     }, [userId]);
 
@@ -24,6 +26,18 @@ const UserContainer = () => {
         } catch (error) {
             console.error("Failed to fetch user", error);
             setError("Failed to fetch user"); // Set error state if user fetching fails
+        } finally {
+            setLoading(false); // Set loading state to false after fetching user data
+        }
+    };
+
+    const loadCurrentUser = async () => {
+        try {
+            const currentUser = await userService.getCurrentUser(); // Fetch current user data from session
+            setUser(currentUser); // Set fetched user data to state
+        } catch (error) {
+            console.error("Failed to fetch current user", error);
+            setError("Failed to fetch current user"); // Set error state if fetching fails
         } finally {
             setLoading(false); // Set loading state to false after fetching user data
         }

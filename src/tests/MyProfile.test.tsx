@@ -26,8 +26,8 @@ describe('MyProfile component', () => {
     const sanitizedCreatedAt = '2023-06-19';
     
     // Check that the sanitized constants is rendered in the document
-    expect(screen.getByText(`Full name: ${sanitizedFullName}`)).toBeInTheDocument();
-    expect(screen.getByText(`Username @${sanitizedUsername}`)).toBeInTheDocument();
+    expect(screen.getByText(`${sanitizedFullName}`)).toBeInTheDocument();
+    expect(screen.getByText(`@${sanitizedUsername}`)).toBeInTheDocument();
     expect(screen.getByText(`Member since ${sanitizedCreatedAt}`)).toBeInTheDocument();
   });
 });

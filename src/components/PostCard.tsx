@@ -6,6 +6,8 @@ import { AiFillLike } from 'react-icons/ai';
 import Post from '../models/post';
 import User from '../models/user';
 import sanitizeHtml from 'sanitize-html';
+import { format } from 'date-fns';
+import { da } from 'date-fns/locale';
 
 interface Props {
   posts: Post[];
@@ -81,7 +83,7 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                     color='grey'
                     fontSize={{ base: '12', md: '20'}}
                   >
-                    {post.date}
+                    {format(new Date(post.date), 'HH:mm - dd. MMM yyyy', { locale: da })}
                   </Text>
                 </Box>
               </Flex>

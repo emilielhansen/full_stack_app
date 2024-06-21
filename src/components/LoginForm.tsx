@@ -6,11 +6,11 @@ import UserService from '../services/userService';
 import { useAuth } from '../hoc/authContext';
 import logo from '../assets/logo.png';
 
-    interface Props {
-      onLoginSuccess: () => void;
-    }
+interface Props {
+  onLoginSuccess: () => void;
+}
 
-  const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
+const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();

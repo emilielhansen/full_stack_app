@@ -31,33 +31,35 @@ const PostCardContainer = () => {
     const sortedPosts = posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
     setPosts(sortedPosts);
   };
-
+  
+  // Function to load current user
   const loadUser = async (userId: string) => {
-        try {
-            const fetchedUser = await userService.get(userId); // Fetch user data from userService
-            setUser(fetchedUser); // Set fetched user data to state
-        } catch (error) {
-            console.error("Failed to fetch user", error);
-            setError("Failed to fetch user"); // Set error state if user fetching fails
-        } finally {
-            setLoading(false); // Set loading state to false after fetching user data
-        }
-    };
-
-    // Render loading message while fetching user data
-    if (loading) {
-        return <p>Loading...</p>;
+    try {
+        const fetchedUser = await userService.get(userId); // Fetch user data from userService
+        setUser(fetchedUser); // Set fetched user data to state
+    } catch (error) {
+        console.error("Failed to fetch user", error);
+        setError("Failed to fetch user"); // Set error state if user fetching fails
+    } finally {
+        setLoading(false); // Set loading state to false after fetching user data
     }
+};
 
-    // Render error message if there's an error fetching user data
-    if (error) {
-        return <p>{error}</p>;
-    }
+// Render loading message while fetching user data
+if (loading) {
+    return <p>Loading...</p>;
+}
 
-    // Render message if user is not found
-    if (!user) {
-        return <p>User not found</p>;
-    }
+// Render error message if there's an error fetching user data
+if (error) {
+    return <p>{error}</p>;
+}
+
+// Render message if user is not found
+if (!user) {
+    return <p>User not found</p>;
+}
+
 
   // Function to delete a post
   const deletePost = async (id: string) => {
