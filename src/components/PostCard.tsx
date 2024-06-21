@@ -43,7 +43,7 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
       <ul style={{ listStyleType: 'none' }}>
         {posts.map((post) => (
           <li key={post._id}>
-            <Box maxWidth={'800'} m={3} backgroundColor='gray.500' p={5} borderRadius={5} position='relative'>
+            <Box width={{ base: '400px', md: '750px', lg:'800px'}} m={3} backgroundColor='gray.500' p={5} borderRadius={5} position='relative'>
               <Flex>
                 <Box>
                   {isMyUser ? (
