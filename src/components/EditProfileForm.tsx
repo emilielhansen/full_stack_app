@@ -72,12 +72,12 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
   };
 
   return (
-    <Box m="auto" mt={8} mb={8} p={4} maxWidth="400px">
+    <Box m="auto" mt={8} mb={8} p={4} maxWidth="500px">
       {/* Edit profile form */}
       <Box>
-        {/* <form onSubmit={handleUpdateUser}> */}
+        <form onSubmit={handleUpdateUser}>
           {/* Full name input field */}
-          {/* <FormControl mb={4}>
+          <FormControl mb={4}>
             <FormLabel color='white'>Full name</FormLabel>
             <Input
               type="text"
@@ -101,11 +101,11 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
             />
           </FormControl>
           {/* Update button */}
-          {/* <Box textAlign="center" mb={4}>
+           <Box textAlign="center" mb={4}>
             <Button type="submit" variant="yellow">
               Update Profile
             </Button>
-          </Box> */}
+          </Box>
           {/* Delete button */}
           <Box textAlign="center">
           <Heading pb={2} fontFamily='Chakra Petch' fontSize={{ base: '20', md: '25', lg: '35' }}>
@@ -114,7 +114,7 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
               Delete Profile
             </Button>
           </Box>
-        {/* </form> */}
+        </form>
       </Box>
     </Box>
   );

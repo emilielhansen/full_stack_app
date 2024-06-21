@@ -4,6 +4,8 @@ import { describe, it  } from "vitest";
 import { render, screen } from '@testing-library/react';
 import MyProfile from '../components/MyProfile';
 import User from '../models/user';
+import { format } from 'date-fns';
+import { da } from 'date-fns/locale';
 
 describe('MyProfile component', () => {
   // Define a test case for rendering with user data
@@ -13,7 +15,7 @@ describe('MyProfile component', () => {
       _id: '1',
       fullname: 'Test User',
       username: 'testuser',
-      createdAt: '2023-06-19',
+      createdAt:  new Date().toISOString(),
       email: 'test@user.com',
       password: 'Test123'
     };
@@ -23,7 +25,7 @@ describe('MyProfile component', () => {
     
     const sanitizedFullName = 'Test User';
     const sanitizedUsername = 'testuser';
-    const sanitizedCreatedAt = '2023-06-19';
+    const sanitizedCreatedAt =  format(new Date(user.createdAt), 'dd. MMM yyyy', { locale: da });
     
     // Check that the sanitized constants is rendered in the document
     expect(screen.getByText(`${sanitizedFullName}`)).toBeInTheDocument();
