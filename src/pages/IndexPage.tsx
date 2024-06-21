@@ -1,6 +1,7 @@
 // Index page
 import { Grid, GridItem, Heading, Box, Text, Image, Center, Button, Link } from '@chakra-ui/react';
 import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 const IndexPage = () => {
     const navigate = useNavigate();
@@ -12,7 +13,7 @@ const IndexPage = () => {
         mb={8}>
             <GridItem>
                 <Center>
-                    <Image src="src/assets/logo.png" w='20%' pt={30}/>
+                    <Image src={logo} w='20%' pt={30}/>
                 </Center>
             </GridItem>
 

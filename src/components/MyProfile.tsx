@@ -1,5 +1,6 @@
 //Profile info from logged in user
 import { Box, Heading, Avatar, Text } from "@chakra-ui/react";
+import { Box, Heading, Text } from "@chakra-ui/react";
 import sanitizeHtml from 'sanitize-html';
 import User from "../models/user";
 import { format } from 'date-fns';
@@ -16,6 +17,7 @@ const MyProfile = ({ user }: Props) => {
     const sanitizedFullName = sanitizeHtml(user.fullname);
     const sanitizedUsername = sanitizeHtml(user.username);
     const sanitizedCreatedAt = sanitizeHtml(format(new Date(user.createdAt), 'dd. MMM yyyy', { locale: da }));
+
     return (
         <>
             {/* Main container box */}
@@ -24,33 +26,22 @@ const MyProfile = ({ user }: Props) => {
                 <Box 
                     key={user._id} 
                     bg={"#FBC027"} 
-                    mt={-5} 
-                    h={300} 
+                    mt={-5}
+                    mb={5} 
                     width="100%" 
                     position="relative" 
                     zIndex={-1} 
                     margin={0}
                 >
-                    {/* User avatar */}
-                    <Avatar
-                        boxSize="150px"
-                        src="https://via.placeholder.com/"
-                        m={5}
-                        position="absolute"
-                        bottom={0}
-                        left={0}
-                        maxWidth="100%"
-                        maxHeight="100%" 
-                    />
-                </Box>
                 {/* User information section */}
-                <Box p={5}>
+                <Box p={5} m={5}>
                     {/* User full name */}
                     <Heading size="lg">{sanitizedFullName}</Heading>
                     {/* User username */}
                     <Text color="white">@{sanitizedUsername}</Text>
                     {/* User creation date */}
                     <Text color="white">Member since {sanitizedCreatedAt}</Text>
+
                 </Box>
             </Box>
         </>

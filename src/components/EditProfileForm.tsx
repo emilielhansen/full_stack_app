@@ -1,5 +1,5 @@
-// Update user profile form component
 import React, { useState } from 'react';
+
 import { Box, Button, Input, FormControl, FormLabel, Avatar, Center, Heading } from '@chakra-ui/react';
 import User from '../models/user';
 import { useNavigate } from 'react-router-dom';
@@ -38,6 +38,7 @@ import UserService from '../services/userService';
 //     onDeleteUser(user._id);
 //   };
 
+
 interface EditProfileFormProps {
   user: User;
   onUpdateUser: (id: string, fullname: string) => void;
@@ -72,16 +73,11 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
 
   return (
     <Box m="auto" mt={8} mb={8} p={4} maxWidth="400px">
-      {/* Centered profile picture */}
-      <Center>
-        <Avatar boxSize={{ md: "150px", base:"120px" }} src={user.image} border={50} />
-      </Center>
-
       {/* Edit profile form */}
       <Box>
-        <form onSubmit={handleUpdateUser}>
+        {/* <form onSubmit={handleUpdateUser}> */}
           {/* Full name input field */}
-          <FormControl mb={4}>
+          {/* <FormControl mb={4}>
             <FormLabel color='white'>Full name</FormLabel>
             <Input
               type="text"
@@ -105,11 +101,11 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
             />
           </FormControl>
           {/* Update button */}
-          <Box textAlign="center" mb={4}>
+          {/* <Box textAlign="center" mb={4}>
             <Button type="submit" variant="yellow">
               Update Profile
             </Button>
-          </Box>
+          </Box> */}
           {/* Delete button */}
           <Box textAlign="center">
           <Heading pb={2} fontFamily='Chakra Petch' fontSize={{ base: '20', md: '25', lg: '35' }}>
@@ -118,7 +114,7 @@ const EditProfileForm = ({ user, onUpdateUser, onDeleteUser }: EditProfileFormPr
               Delete Profile
             </Button>
           </Box>
-        </form>
+        {/* </form> */}
       </Box>
     </Box>
   );

@@ -31,7 +31,7 @@ const PostCardContainer = () => {
     const sortedPosts = posts.sort((a, b) => Date.parse(b.date) - Date.parse(a.date));
     setPosts(sortedPosts);
   };
-
+  
   // Function to load current user
   const loadUser = async (userId: string) => {
     try {
@@ -59,6 +59,7 @@ if (error) {
 if (!user) {
     return <p>User not found</p>;
 }
+
 
   // Function to delete a post
   const deletePost = async (id: string) => {

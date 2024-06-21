@@ -1,4 +1,3 @@
-// Navbar component
 import React from 'react';
 import { Box, Flex, Link, Button, Avatar, Image, Menu, MenuButton, MenuList, MenuItem, MenuDivider, IconButton, Drawer, DrawerBody, DrawerHeader, DrawerOverlay, DrawerContent, DrawerCloseButton, useDisclosure } from '@chakra-ui/react';
 import { HamburgerIcon } from '@chakra-ui/icons';
@@ -7,6 +6,7 @@ import { useNavigate, useParams } from 'react-router-dom';
 import logo_icon from '../assets/logo_icon.png';
 import UserService from '../services/userService';
 import { useAuth } from '../hoc/authContext';
+import User from '../models/user';
 
 const NavBar: React.FC = () => {
   const { user, setUser } = useAuth();
@@ -14,7 +14,7 @@ const NavBar: React.FC = () => {
   const navigate = useNavigate();  // Hook to navigate between routes
   const isLoggedIn = !!user;
   //const { userId } = useParams<{ userId: string }>(); // Extract userId from URL using useParams
-  
+
 
   // User logout function
   const handleLogout = async () => {
@@ -54,7 +54,7 @@ const NavBar: React.FC = () => {
             // Logged-in user avatar and dropdown menu
             <Menu>
               <MenuButton as={Button} backgroundColor="transparent" border="none" _hover={{ backgroundColor: 'transparent' }} _active={{ backgroundColor: 'transparent' }} p={0} m={0}>
-                <Avatar size="sm" name="Username" src="https://via.placeholder.com/" />
+                <Avatar backgroundColor="yellow.900" boxSize={8}/>
               </MenuButton>
               <MenuList color="white" borderRadius="8px" borderColor="transparent" mt={2}>
                 <MenuItem icon={<FaUser />} onClick={handleNavigateToProfile}>Profile</MenuItem>
@@ -79,16 +79,38 @@ const NavBar: React.FC = () => {
       {/* Drawer for mobile navigation */}
       <Drawer isOpen={isOpen} placement="right" onClose={onClose}>
         <DrawerOverlay />
-        <DrawerContent bg="black.900" color="white">
+        <DrawerContent bg="black.900" color="white" pl={10}>
           <DrawerCloseButton />
-          {/* Logged-in user header */}
-          {isLoggedIn && (
-            <DrawerHeader>
-              <Flex align="center">
-                <Avatar size="sm" name="Username" src="https://via.placeholder.com/" mr={2} />
-                <Box>Username</Box>
-              </Flex>
-            </DrawerHeader>
+          {/* Hamburger menu icon for mobile */}
+          <Flex justify="flex-end" py={2} pr={2}>
+            <IconButton aria-label="Close menu" onClick={onClose} />
+          </Flex>
+          {/* Drawer links and buttons */}
+          {isLoggedIn ? (
+            // Drawer links for logged-in users
+            <>
+              <Link onClick={handleNavigateToProfile} mb={4} display="block">
+                <Flex align="center">
+                  <FaUser /><Box ml={2}>Profile</Box>
+                </Flex>
+              </Link>
+              <Link onClick={() => navigate(`/edit-profile/${userId}`)} mb={4} display="block">
+                <Flex align="center">
+                  <FaCog /><Box ml={2}>Settings</Box>
+                </Flex>
+              </Link>
+              <Link onClick={handleLogout} mb={4} display="block">
+                <Flex align="center">
+                  <FaSignOutAlt /><Box ml={2}>Logout</Box>
+                </Flex>
+              </Link>
+            </>
+          ) : (
+            // Drawer buttons for not logged in users
+            <>
+              <Button onClick={() => navigate('/login')} variant="white" mt={7} mb={3} w="100%">Login</Button>
+              <Button onClick={() => navigate('/signup')} variant="yellow" w="100%">Sign up</Button>
+            </>
           )}
           <DrawerBody>
             {/* Drawer links and buttons */}

@@ -24,6 +24,7 @@ const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
           setUser(user);
           console.log('User logged in:', user);
           navigate(`/profile/${user._id}`);
+          onLoginSuccess();
         } else {
           console.log('Invalid credentials or user not found');
         }

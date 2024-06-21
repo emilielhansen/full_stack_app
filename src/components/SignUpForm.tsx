@@ -1,10 +1,11 @@
 // Signup Form component
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Box, Input, Button, Center, Image, Link, Text, useToast, FormControl, FormLabel } from '@chakra-ui/react';
 import UserService from '../services/userService';
 import User from '../models/user';
 import { Validation } from '../validation/validate';
+import { useNavigate } from 'react-router-dom';
+import logo from '../assets/logo.png';
 
 // Interface for SignUpForm props
 interface SignUpFormProps {
@@ -30,7 +31,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   // Hook to display toast notifications
   const toast = useToast();
 
-  // Hook to navigate to different routes
   const navigate = useNavigate();
 
     // State to manage the form submission status
@@ -43,13 +43,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
       ...prevData,
       [name]: value,
     }));
-  };
-
-  // Function to handle profile image change
-  const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files[0]) {
-      setImage(e.target.files[0]);
-    }
   };
 
   // Function to validate form data
@@ -102,7 +95,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
         fullname: formData.fullname,
         email: formData.email,
         password: formData.password,
-        image: image ? URL.createObjectURL(image) : '', // Convert image file to a URL string
         createdAt: new Date().toISOString(), // Set the creation date
       };
 
@@ -120,7 +112,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 
       // Call the success callback and navigate to login page
       onSignUpSuccess();
-      navigate('/login');
 
     } catch (error) {
       // Set general error message if account creation fails
@@ -142,7 +133,7 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
       {/* Logo */}
       <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
         <Center>
-          <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+          <Image boxSize="200px" src={logo} alt="Logo" />
         </Center>
       </Link>
 
@@ -209,16 +200,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
             />
             {errors.confirmPassword && <Text color="red.500">{errors.confirmPassword}</Text>}
           </FormControl>
-          <FormControl mb={8}>
-            <FormLabel color='white'>Upload profile image</FormLabel>
-            <Input
-              ml={-5}
-              type="file"
-              color='white'
-              border={0}
-              onChange={handleImageChange}
-            />
-          </FormControl>
           <Box textAlign="center" mb={4}>
             <Button type="submit" variant='yellow'>
               Sign up
@@ -235,3 +216,4 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
 };
 
 export default SignUpForm;
+

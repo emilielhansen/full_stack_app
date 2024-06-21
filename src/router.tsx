@@ -21,14 +21,6 @@ const router = createBrowserRouter([
         { path: "/edit-profile/:userId", element: < EditProfilePage /> },
         { path: "/profile/:userId", element: < ProfilePage /> },
         { path: "/feed", element: < FeedPage /> },
-        // {
-        //   element: <RequireAuth />,
-        //   children: [
-        //     { path: "/edit-profile", element: < EditProfilePage /> },
-        //     { path: "/profile/:userId", element: < ProfilePage /> },
-        //     { path: "/feed", element: < FeedPage /> },
-        //   ]
-        // }
     ],
   },
 ]);
