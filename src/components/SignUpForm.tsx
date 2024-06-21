@@ -33,6 +33,9 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
   // Hook to navigate to different routes
   const navigate = useNavigate();
 
+    // State to manage the form submission status
+    const [isSubmitting, setIsSubmitting] = useState(false);
+
   // Function to handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -90,6 +93,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
     e.preventDefault();
     if (!validateForm()) return;
 
+    setIsSubmitting(true); // Set submitting state to true
+
     try {
       // Create new user object from form data
       const newUser: Partial<User> = {
@@ -127,6 +132,8 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
         duration: 9000,
         isClosable: true,
       });
+    } finally {
+      setIsSubmitting(false); // Reset submitting state
     }
   };
 

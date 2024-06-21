@@ -4,8 +4,13 @@ import { useNavigate } from 'react-router-dom';
 import { Box, Button, Input, FormControl, FormLabel, Image, Center, Text, Link } from '@chakra-ui/react';
 import UserService from '../services/userService';
 import { useAuth } from '../hoc/authContext';
+import logo from '../assets/logo.png';
 
-  const LoginForm: React.FC = () => {
+interface Props {
+  onLoginSuccess: () => void;
+}
+
+const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
@@ -33,7 +38,7 @@ import { useAuth } from '../hoc/authContext';
       {/* Logo */}
       <Link onClick={() => navigate('/')} boxSize="50px" fontSize="xl" fontWeight="bold">
         <Center>
-          <Image boxSize="200px" src="/src/assets/logo.png" alt="Logo" />
+          <Image boxSize="200px" src={logo} alt="Logo" />
         </Center>
       </Link>
 

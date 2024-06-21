@@ -1,13 +1,19 @@
 import LoginForm from "../components/LoginForm";
+import { useNavigate } from 'react-router-dom';
 
 // Implement an "onLogin" function
 
 const Login = () => {
+
+    const navigate = useNavigate();
+
+    // Function to load current user
+    const loginSuccess = async () => {
+    };
+
     return (
         <>
-        <LoginForm onLoginSuccess={function (): void {
-                throw new Error("Function not implemented.");
-            } } />
+        <LoginForm onLoginSuccess={loginSuccess} />
         </>
     );
   };

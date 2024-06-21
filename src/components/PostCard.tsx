@@ -5,6 +5,9 @@ import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Post from '../models/post';
 import User from '../models/user';
+import sanitizeHtml from 'sanitize-html';
+import { format } from 'date-fns';
+import { da } from 'date-fns/locale';
 
 interface Props {
   posts: Post[];
@@ -60,7 +63,6 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                     </Heading>
                   ) : (
                     <Flex>
-                      {/* Display post ID (this should probably be the username or full name) */}
                       <Heading 
                         as='h2' 
                         fontSize={{ base: '13', md: '20', lg:'25'}}
@@ -68,9 +70,8 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                         maxWidth={{ base: '125px', sm: '200px', md: '500px'}}
                         sx={{ wordBreak: 'break-word' }}
                       >
-                        {post._id}
+                        {user?.username}
                       </Heading>
-                      {/* Edit button */}
                       <HiDotsHorizontal
                         color='yellow.900'
                         cursor='pointer'
@@ -89,22 +90,21 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
                     color='grey'
                     fontSize={{ base: '12', md: '20'}}
                   >
-                    {post.date}
+                    {format(new Date(post.date), 'HH:mm - dd. MMM yyyy', { locale: da })}
                   </Text>
                 </Box>
               </Flex>
               {/* Post content */}
               <Box borderBottom={1} borderBottomColor='gray.500'>
+                {/* Sanitize post content */}
                 <Text 
                   py={5} 
                   fontSize={{ base: '15', md: '20', lg:'23'}} 
                   color="white" 
                   sx={{ wordBreak: 'break-word' }}
-                >
-                  {post.content}
-                </Text>
+                  dangerouslySetInnerHTML={{ __html: sanitizeHtml(post.content) }}
+                />
               </Box>
-              {/* Like button and count */}
               <Box>
                 {post.like}
                 <AiFillLike cursor='pointer' />
