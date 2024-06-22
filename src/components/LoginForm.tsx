@@ -5,6 +5,7 @@ import { Box, Button, Input, FormControl, FormLabel, Image, Center, Text, Link }
 import UserService from '../services/userService';
 import { useAuth } from '../hoc/authContext';
 import logo from '../assets/logo.png';
+import { useToast } from '@chakra-ui/react';
 
 interface Props {
   onLoginSuccess: () => void;
@@ -15,6 +16,7 @@ const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
     const [password, setPassword] = useState('');
     const navigate = useNavigate();
     const { setUser } = useAuth();
+    const toast = useToast();
   
     const handleSubmit = async (event: React.FormEvent) => {
       event.preventDefault();
@@ -27,6 +29,13 @@ const LoginForm: React.FC<Props> = ({ onLoginSuccess }) => {
           onLoginSuccess();
         } else {
           console.log('Invalid credentials or user not found');
+          toast({
+            title: "Failed to login account.",
+            description: "Invalid credentials or user not found.",
+            status: "error",
+            duration: 9000,
+            isClosable: true,
+          });
         }
       } catch (error) {
         console.error('Error logging in:', error);

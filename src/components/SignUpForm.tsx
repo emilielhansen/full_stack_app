@@ -22,9 +22,6 @@ const SignUpForm: React.FC<SignUpFormProps> = ({ onSignUpSuccess }) => {
     confirmPassword: '',
   });
 
-  // State to manage the selected profile image
-  const [image, setImage] = useState<File | null>(null);
-
   // State to manage form validation errors
   const [errors, setErrors] = useState<{ [key: string]: string }>({});
 
