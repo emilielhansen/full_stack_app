@@ -22,7 +22,7 @@ const PostCreate = ({ onAddPost }: Props) => {
         <>
             {/* Centered container for creating a new post */}
             <Center>
-                <Box m={3} width={800}>
+                <Box m={3}  width={{ base: '300px', md: '550px', lg:'800px'}}>
                     {/* Label for the content input */}
                     <label htmlFor="content">
                         <Heading

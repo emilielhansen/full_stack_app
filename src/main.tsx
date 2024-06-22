@@ -10,10 +10,10 @@ import { AuthProvider } from './hoc/authContext';
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <ChakraProvider theme={theme}>
-    <AuthProvider>
-    <Fonts />
-    <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-      <RouterProvider router={router} />
+      <AuthProvider>
+        <Fonts />
+        <ColorModeScript initialColorMode={theme.config.initialColorMode} />
+        <RouterProvider router={router} />
       </AuthProvider>
     </ChakraProvider>
   </React.StrictMode>

@@ -5,6 +5,7 @@ import User from "../models/user";
 import { format } from 'date-fns';
 import { da } from 'date-fns/locale';
 
+
 // Define the Props interface to type-check the user prop
 interface Props {
     user: User;
@@ -31,17 +32,6 @@ const MyProfile = ({ user }: Props) => {
                     zIndex={-1} 
                     margin={0}
                 >
-                    {/* User avatar */}
-                    <Avatar
-                        boxSize="150px"
-                        src="https://via.placeholder.com/"
-                        m={5}
-                        position="absolute"
-                        bottom={0}
-                        left={0}
-                        maxWidth="100%"
-                        maxHeight="100%" 
-                    />
                 </Box>
                 {/* User information section */}
                 <Box p={5}>
