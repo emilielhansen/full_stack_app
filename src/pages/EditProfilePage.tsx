@@ -67,7 +67,7 @@ const EditProfilePage = () => {
 
     return (
         <>
-            <EditProfileForm user={user} onUpdateUser={updateUser} onDeleteUser={deleteUser} />
+            <EditProfileForm user={user} onDeleteUser={deleteUser} />
         </>
     );
 };
