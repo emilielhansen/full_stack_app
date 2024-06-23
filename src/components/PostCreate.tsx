@@ -2,20 +2,21 @@
 import { Box, Input, Button, Flex, Center, Heading } from '@chakra-ui/react';
 import { useState } from 'react';
 
-// Props interface for the PostCreate component
+// Props interface - definere struktur for de egenskaber(props) som componentet forventer at modtage
 interface Props {
     onAddPost: (content: string) => void;
 }
 
 const PostCreate = ({ onAddPost }: Props) => {
-    const [content, setContent] = useState(""); // State to store the content of the new post
+    const [content, setContent] = useState(""); // definere vores state som skal store indholdet at postet
 
     // Function to handle form submission
     const submitForm = (e: React.FormEvent) => {
         e.preventDefault(); // Prevent default form submission behavior
-        if (!content) return; // Check if content is empty
+        if (!content) return; // chekcer om der er noget i inputfeltet
         onAddPost(content); // Call the onAddPost function passed via props with the content
-        setContent(""); // Clear the content input
+        console.log('Created new post')
+        setContent(""); // Rydder inputtet
     };
 
     return (

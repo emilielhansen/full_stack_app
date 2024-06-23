@@ -45,7 +45,7 @@ const PostCardContainer = () => {
     }
 };
 
-// Render loading message while fetching user data
+//Render loading message while fetching user data
 if (loading) {
     return <p>Loading...</p>;
 }

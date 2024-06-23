@@ -17,7 +17,7 @@ const RequireAuth: React.FC = () => {
   if (!user) {
     return <Navigate to="/login" />;
   }
-
+  //placeholder for child component that will be rendered
   return <Outlet />;
 };
 

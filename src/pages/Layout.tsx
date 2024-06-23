@@ -9,6 +9,7 @@ const Layout = () => {
     <>
       <NavBar />
       <Box pb={5}>
+      {/* placeholder for child component that will be rendered */}
         <Outlet />
         <App />
       </Box>

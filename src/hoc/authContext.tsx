@@ -33,8 +33,6 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
 
   const isLoggedIn = !!user;
 
-  console.log("AuthProvider user state:", user); // Debug log
-
   return (
     <AuthContext.Provider value={{ user, loading, isLoggedIn, setUser }}>
       {children}

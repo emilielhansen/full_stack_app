@@ -1,6 +1,6 @@
 // Postcard component
 import { useState } from 'react';
-import { Heading, Box, Input, Button, Flex, Avatar, Text, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
+import { Heading, Box, Input, Button, Flex, Text, Center, Modal, useDisclosure, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter } from '@chakra-ui/react';
 import { HiDotsHorizontal } from 'react-icons/hi';
 import { AiFillLike } from 'react-icons/ai';
 import Post from '../models/post';
@@ -30,11 +30,13 @@ const PostCard = ({ posts, onDeletePost, onUpdatePost, user }: Props) => {
 
   const handleUpdatePost = () => {
     onUpdatePost(currentPostId, editContent);
+    console.log('Post updated')
     onClose();
   };
 
   const handleDeletePost = () => {
     onDeletePost(currentPostId);
+    console.log('Post deleted')
     onClose();
   };
 

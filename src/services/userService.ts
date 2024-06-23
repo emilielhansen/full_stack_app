@@ -32,6 +32,7 @@ class UserService {
     }
   };
 
+  // signup - sender post anmodningen til api/users i userRouter
   async create(user: User): Promise<User> {
     const response = await this.http.post<User>('/users', user);
     return response.data;
