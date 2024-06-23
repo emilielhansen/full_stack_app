@@ -9,7 +9,6 @@ class PostService {
   async getAll(): Promise<Post[]> {
     const response = await this.http.get<Post[]>("/posts");
     return response.data;
-
   }
 
   async get(id: string): Promise<Post> {

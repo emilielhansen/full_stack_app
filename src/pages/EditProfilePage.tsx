@@ -46,14 +46,14 @@ const EditProfilePage = () => {
     }
 
     // Function to update a user
-    const updateUser = async (id: string, fullname: string) => {
-        try {
-            const updatedUser = await userService.update(id, fullname);
-            setUser(updatedUser);
-        } catch (error) {
-            console.error("Failed to update user", error);
-        }
-    };
+    // const updateUser = async (id: string, fullname: string) => {
+    //     try {
+    //         const updatedUser = await userService.update(id, fullname);
+    //         setUser(updatedUser);
+    //     } catch (error) {
+    //         console.error("Failed to update user", error);
+    //     }
+    // };
 
     // Function to delete a user
     const deleteUser = async (id: string) => {

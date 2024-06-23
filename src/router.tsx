@@ -7,14 +7,14 @@ import SignUpPage from "./pages/SignupPage";
 import EditProfilePage from "./pages/EditProfilePage";
 import ProfilePage from "./pages/ProfilePage";
 import FeedPage from "./pages/FeedPage";
-import RequireAuth from "./hoc/RequireAuth";
 
+//Definere vores ruter 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
-    errorElement: <ErrorPage />,
-    children: [
+    element: <Layout />, //Overordnet layout
+    errorElement: <ErrorPage />, //hvis der opstår fejl bliver denne side vist
+    children: [ //Alt det der bliver renderet inde i layout
         { path: "/", element: < IndexPage /> }, 
         { path: "/login", element: < LoginPage /> }, 
         { path: "/signup", element: < SignUpPage /> },

@@ -51,6 +51,7 @@ const EditProfileForm = ({ user, onDeleteUser }: EditProfileFormProps) => {
   // Function to handle user deletion
   const handleDeleteUser = async () => {
     onDeleteUser(currentUserId);
+    console.log('User deleted:', user);
     await UserService.logout();
     setUser(null);
     navigate('/login');
